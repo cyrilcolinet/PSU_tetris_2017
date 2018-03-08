@@ -58,3 +58,8 @@ dkms.conf
 
 # End of https://www.gitignore.io/api/c
 
+.clang_complete
+tetris
+include/my.h
+build/
+buil_tests/

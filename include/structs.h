@@ -14,17 +14,17 @@
 # include <fcntl.h>
 # include <ncurses.h>
 
-typedef struct tetriminos_s {
+typedef struct tetriminos {
 	char *name;
 	char **form;
 	struct tetriminos *next;
 } tetriminos_t;
 
-typedef struct config_s {
+typedef struct config {
 
 } config_t;
 
-typedef struct main_s {
+typedef struct main {
 	tetriminos_t *tetri;
 	config_t config;
 } main_t;

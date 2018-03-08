@@ -17,8 +17,13 @@ TEST_DIR	= 	tests/
 
 SRC_FILES	= 	main.c		\
 			tetris.c	\
+<<<<<<< HEAD
 			error_management/check_err.c	\
 			map_management/display_map.c
+=======
+			error_management/check_err.c 		\
+			utils/struct_utils.c
+>>>>>>> 7a5a660aca0e40138bceda078c47f83a6c6da0be
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
@@ -32,7 +37,7 @@ LIBRARY_DIR	= 	lib/
 
 CC		=	gcc
 
-CFLAGS		= 	-Wall -Wextra -I $(INCLUDE)
+CFLAGS		= 	-Wall -Wextra -I $(INCLUDE) -g3
 
 LFLAGS		= 	-L $(LIBRARY_DIR) -lmy
 
