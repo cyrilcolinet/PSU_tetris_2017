@@ -21,7 +21,8 @@ void free_all(main_t *main);
 main_t *configure(void);
 
 //map_management
-void display_map(main_t *param);
+void display_game(main_t *param);
+void dispaly_map(void);
 
 //create_tetris_title
 void create_tetris_title(void);

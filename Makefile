@@ -18,6 +18,7 @@ TEST_DIR	= 	tests/
 SRC_FILES	= 	main.c		\
 			tetris.c	\
 			error_management/check_err.c	\
+			map_management/display_game.c	\
 			map_management/display_map.c	\
 			map_management/create_tetris_title.c	\
 			map_management/tetris_letter/letter_1.c	\
