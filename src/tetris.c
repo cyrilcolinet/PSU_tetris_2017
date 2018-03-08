@@ -24,7 +24,7 @@ int tetris_main(int ac, char **av)
 	param = configure();
 	if (param == NULL)
 		return (84);
-//	display_map(m);
+	display_map(param);
 	err = tetris(ac, av, param);
 	free_all(param);
 	return (err);

@@ -12,6 +12,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <sys/stat.h>
+# include <sys/types.h>
 # include <ncurses.h>
 
 typedef struct tetriminos {

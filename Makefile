@@ -19,7 +19,13 @@ SRC_FILES	= 	main.c		\
 			tetris.c	\
 			error_management/check_err.c	\
 			map_management/display_map.c	\
-			error_management/check_err.c 	\
+			map_management/create_tetris_title.c	\
+			map_management/tetris_letter/letter_1.c	\
+			map_management/tetris_letter/letter_2.c	\
+			map_management/tetris_letter/letter_3.c	\
+			map_management/tetris_letter/letter_4.c	\
+			map_management/tetris_letter/letter_5.c	\
+			map_management/tetris_letter/letter_6.c	\
 			utils/struct_utils.c
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
@@ -36,7 +42,7 @@ CC		=	gcc
 
 CFLAGS		= 	-Wall -Wextra -I $(INCLUDE) -g3
 
-LFLAGS		= 	-L $(LIBRARY_DIR) -lmy
+LFLAGS		= 	-L $(LIBRARY_DIR) -lmy -lncurses
 
 UNITS_LFLAGS	= 	$(LFLAGS) -lgcov -lcriterion
 

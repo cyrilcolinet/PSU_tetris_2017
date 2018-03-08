@@ -7,15 +7,29 @@
 
 #include "tetris.h"
 
-void display_map(main_t *main)
+void display_map(main_t *param)
 {
-	/* initsrc(); */
-	/* keypad(stdscr, TRUE); */
-	/* raw(); */
-	/* noecho();	 */
-	/* while (1) { */
-	/* 	clear(); */
-	/* 	curs_set(FALSE); */
-	/* 	mvprintw( 0, 0, "kek"); */
-	/* } */
+	int n;
+
+	initscr();
+	keypad(stdscr, TRUE);
+	raw();
+	noecho();
+	start_color();
+	init_pair(1, COLOR_RED, COLOR_BLACK);
+	init_pair(2, COLOR_GREEN, COLOR_BLACK);
+	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(4, COLOR_BLUE, COLOR_BLACK);
+	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+	init_pair(6, COLOR_CYAN, COLOR_BLACK);
+	while (1) {
+		n = getch();
+		clear();
+		curs_set(FALSE);
+		create_tetris_title();
+		refresh();
+		if (n == 27)
+			break;
+	}
+	endwin();
 }

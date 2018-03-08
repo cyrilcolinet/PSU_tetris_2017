@@ -21,6 +21,15 @@ void free_all(main_t *main);
 main_t *configure(void);
 
 //map_management
-void display_map(main_t *main);
+void display_map(main_t *param);
+
+//create_tetris_title
+void create_tetris_title(void);
+void letter_1(void);
+void letter_2(void);
+void letter_3(void);
+void letter_4(void);
+void letter_5(void);
+void letter_6(void);
 
 # endif
