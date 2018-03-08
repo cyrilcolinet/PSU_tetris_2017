@@ -22,7 +22,7 @@ main_t *configure(void);
 
 //map_management
 void display_game(main_t *param);
-void dispaly_map(void);
+void display_map(void);
 
 //create_tetris_title
 void create_tetris_title(void);
