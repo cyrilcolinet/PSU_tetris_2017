@@ -7,9 +7,17 @@
 
 # include "tetris.h"
 
+static void free_all(void)
+{
+}
+
 int tetris_main(int ac, char **av)
 {
-	(void)ac, (void)av;
+	int err;
 
+	err = check_err(ac, av);
+	if (err == 1)
+		return (84);
+	free_all();
 	return (0);
 }

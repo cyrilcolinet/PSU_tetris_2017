@@ -13,4 +13,8 @@
 // tetris.c
 int 		tetris_main(int ac, char **av);
 
+//error_management
+
+int check_err(int ac, char **av);
+
 # endif
