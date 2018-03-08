@@ -14,7 +14,9 @@
 int 		tetris_main(int ac, char **av);
 
 //error_management
-
 int check_err(int ac, char **av);
+
+//map_management
+void display_map(main_t *main);
 
 # endif

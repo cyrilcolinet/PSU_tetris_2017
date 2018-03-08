@@ -18,6 +18,7 @@ int tetris_main(int ac, char **av)
 	err = check_err(ac, av);
 	if (err == 1)
 		return (84);
+	display_map(m);
 	free_all();
 	return (0);
 }

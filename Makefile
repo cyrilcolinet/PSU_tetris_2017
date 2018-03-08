@@ -17,7 +17,8 @@ TEST_DIR	= 	tests/
 
 SRC_FILES	= 	main.c		\
 			tetris.c	\
-			error_management/check_err.c
+			error_management/check_err.c	\
+			map_management/display_map.c
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
