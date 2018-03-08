@@ -21,7 +21,7 @@ typedef struct tetriminos_s {
 } tetriminos_t;
 
 typedef struct config_s {
-	
+
 } config_t;
 
 typedef struct main_s {
