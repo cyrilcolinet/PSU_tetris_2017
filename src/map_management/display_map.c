@@ -9,7 +9,7 @@
 
 void display_map(main_t *param)
 {
-	int n;
+	int n = 1;
 
 	initscr();
 	keypad(stdscr, TRUE);
@@ -22,14 +22,12 @@ void display_map(main_t *param)
 	init_pair(4, COLOR_BLUE, COLOR_BLACK);
 	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
 	init_pair(6, COLOR_CYAN, COLOR_BLACK);
-	while (1) {
-		n = getch();
+	while (n != 27) {
 		clear();
 		curs_set(FALSE);
 		create_tetris_title();
 		refresh();
-		if (n == 27)
-			break;
+		n = getch();
 	}
 	endwin();
 }
