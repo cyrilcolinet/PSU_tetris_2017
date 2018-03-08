@@ -21,18 +21,11 @@ int tetris_main(int ac, char **av)
 
 	if (err == 1)
 		return (84);
-<<<<<<< HEAD
-	display_map(m);
-	free_all();
-	return (0);
-=======
-
 	param = configure();
 	if (param == NULL)
 		return (84);
-
+//	display_map(m);
 	err = tetris(ac, av, param);
 	free_all(param);
 	return (err);
->>>>>>> 7a5a660aca0e40138bceda078c47f83a6c6da0be
 }

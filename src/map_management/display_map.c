@@ -9,13 +9,13 @@
 
 void display_map(main_t *main)
 {
-	initsrc();
-	keypad(stdscr, TRUE);
-	raw();
-	noecho();	
-	while (1) {
-		clear();
-		curs_set(FALSE);
-		mvprintw( 0, 0 "kek");
-	}
+	/* initsrc(); */
+	/* keypad(stdscr, TRUE); */
+	/* raw(); */
+	/* noecho();	 */
+	/* while (1) { */
+	/* 	clear(); */
+	/* 	curs_set(FALSE); */
+	/* 	mvprintw( 0, 0, "kek"); */
+	/* } */
 }
