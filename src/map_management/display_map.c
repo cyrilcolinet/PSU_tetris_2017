@@ -14,7 +14,7 @@ void display_map(main_t *param)
 	initscr();
 	keypad(stdscr, TRUE);
 	noecho();
-	use_default_colors();
+	curs_set(FALSE);
 	start_color();
 	init_pair(1, COLOR_RED, -1);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
@@ -24,7 +24,6 @@ void display_map(main_t *param)
 	init_pair(6, COLOR_CYAN, COLOR_BLACK);
 	while (n != 27) {
 		clear();
-		curs_set(FALSE);
 		create_tetris_title();
 		refresh();
 		n = getch();
