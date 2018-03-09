@@ -29,7 +29,11 @@ static void display_value_score()
 	nb = nb_length(2487);
 	mvprintw( 14, 26 - nb, "2487");
 	nb = nb_length(0);
-	mvprintw( 16, 26 - nb, "0");
+	/* if ( n < 10) { */
+	/* 	nb++;		 */
+	/* 	mvprintw( 16, 26 - nb, "01"); */
+	/* } else */
+		mvprintw( 16, 26 - nb, "0");
 }
 
 void display_score(void)

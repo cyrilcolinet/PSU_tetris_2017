@@ -30,6 +30,7 @@ char 	*get_next_line(int fdesc);
 void 	display_game(main_t *param);
 void 	display_map(void);
 void 	display_score(void);
+void	display_next_tetri(void);
 
 //create_tetris_title
 void 	create_tetris_title(void);
