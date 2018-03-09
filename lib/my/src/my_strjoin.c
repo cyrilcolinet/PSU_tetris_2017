@@ -10,24 +10,15 @@
 
 char *my_strjoin(char *str1, char *str2)
 {
-	char *new;
-	size_t i = 0, j = 0, str1len = 0, str2len = 0;
+	char  *str;
 
-	if (str1 == NULL)
-		return (NULL);
-	if (str2 == NULL)
-		return (my_strdup(str1));
-
-	str1len = my_strlen(str1);
-	str2len = my_strlen(str2);
-	new = my_strconfigure(str1len + str2len + 1);
-
-	if (new == NULL)
+	if (!str1 || !str2)
 		return (NULL);
 
-	while (i++ < str1len)
-		*(new + i) = *(str1 + i);
-	while (j++ < str2len)
-		*(new + i++) = *(str2 + j);
-	return (new);
+	str = malloc(sizeof(char) * (my_strlen(str1) + my_strlen(str2) + 1));
+	if (str == NULL)
+		return (NULL);
+	my_strcpy(str, str1);
+	my_strcat(str, str2);
+	return (str);
 }

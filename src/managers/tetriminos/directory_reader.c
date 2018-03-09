@@ -7,6 +7,26 @@
 
 # include "tetris.h"
 
+void fill_files(files_t *files, char *path, char *name)
+{
+	files_t *tmp = files;
+	char **real_name = NULL;
+
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+
+	tmp->next = malloc(sizeof(files_t));
+
+	if (tmp->next == NULL)
+		return;
+
+	real_name = my_strtok(name, '.');
+	tmp->next->name = my_strdup(real_name[0]);
+	tmp->next->path = path;
+	tmp->next->next = NULL;
+	my_freetab(real_name);
+}
+
 int throw_directory(files_t *files, main_t *param, dir_t *dent)
 {
 	stat_t info;
@@ -17,12 +37,11 @@ int throw_directory(files_t *files, main_t *param, dir_t *dent)
 	if (!my_strendswith(dent->d_name, ".tetrimino"))
 		return (0);
 
-	path = my_strjoin("fraise", "tabouret");
-	printf("path = %s\n", path);
+	path = my_strjoin("./tetriminos/", dent->d_name);
 
-	if (stat(dent->d_name, &info) < 0) {
+	if (stat(path, &info) < 0)
 		return (1);
-	}
+	fill_files(files, path, dent->d_name);
 	return (0);
 }
 
@@ -50,11 +69,13 @@ int load_all_tetriminos(stat_t info, main_t *param)
 {
 	//files_t *files = get_all_files(param);
 	files_t *tmp = get_all_files(param);
+	int id = 0;
 
 	if (tmp == NULL)
 		return (84);
 
 	while (tmp->next != NULL) {
+		printf("new:\n id: %d\n name: %s\n path: %s\n", ++id, tmp->next->name, tmp->next->path);
 		tmp = tmp->next;
 	}
 

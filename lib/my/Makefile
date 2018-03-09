@@ -29,7 +29,8 @@ SRCNAMES			= my_atoi.c 					\
 					my_strjoin_clear.c 				\
 					my_strjoin.c 					\
 					my_strdup.c 					\
-					my_strcpy.c
+					my_strcpy.c 					\
+					my_strcat.c
 
 SRC 				= $(addprefix src/, $(SRCNAMES))
 
