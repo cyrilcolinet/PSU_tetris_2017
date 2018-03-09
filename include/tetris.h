@@ -8,6 +8,8 @@
 # ifndef TETRIS_H
 # define TETRIS_H
 
+# define READ_SIZE (128)
+
 # include "my.h"
 # include "structs.h"
 
@@ -20,6 +22,9 @@ int 	check_err(int ac, char **av);
 // utils/struct_utils.c
 void 	free_all(main_t *main);
 main_t 	*configure(void);
+
+// utils/get_next_line.c
+char 	*get_next_line(int fdesc);
 
 //map_management
 void 	display_game(main_t *param);
