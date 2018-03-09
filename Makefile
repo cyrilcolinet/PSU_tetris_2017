@@ -17,16 +17,16 @@ TEST_DIR	= 	tests/
 
 SRC_FILES	= 	main.c		\
 			tetris.c	\
-			error_management/check_err.c	\
-			map_management/display_game.c	\
-			map_management/display_map.c	\
-			map_management/create_tetris_title.c	\
-			map_management/tetris_letter/letter_1.c	\
-			map_management/tetris_letter/letter_2.c	\
-			map_management/tetris_letter/letter_3.c	\
-			map_management/tetris_letter/letter_4.c	\
-			map_management/tetris_letter/letter_5.c	\
-			map_management/tetris_letter/letter_6.c	\
+			managers/errors/check_err.c	\
+			managers/map/display_game.c	\
+			managers/map/display_map.c	\
+			managers/map/create_tetris_title.c	\
+			managers/map/tetris_letter/letter_1.c	\
+			managers/map/tetris_letter/letter_2.c	\
+			managers/map/tetris_letter/letter_3.c	\
+			managers/map/tetris_letter/letter_4.c	\
+			managers/map/tetris_letter/letter_5.c	\
+			managers/map/tetris_letter/letter_6.c	\
 			utils/struct_utils.c
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))

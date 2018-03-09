@@ -16,6 +16,8 @@
 # include <sys/types.h>
 # include <ncurses.h>
 
+typedef struct stat stat_t;
+
 typedef struct tetriminos {
 	char *name;
 	char **form;
