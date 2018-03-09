@@ -75,6 +75,7 @@ int load_all_tetriminos(stat_t info, main_t *param)
 		return (84);
 
 	while (tmp->next != NULL) {
+		tmp->next->id = ++id;
 		fill_tetriminos(param, tmp->next);
 		tmp = tmp->next;
 	}

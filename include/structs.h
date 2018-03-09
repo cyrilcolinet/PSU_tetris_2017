@@ -24,6 +24,7 @@ typedef struct stat stat_t;
 typedef struct dirent dir_t;
 
 typedef struct files_t {
+	int id;
 	char *name;
 	char *path;
 	struct files_t *next;
@@ -33,6 +34,7 @@ typedef struct tetriminos {
 	int height;
 	int width;
 	int color;
+	int id;
 	char *name;
 	char **form;
 	char *path;

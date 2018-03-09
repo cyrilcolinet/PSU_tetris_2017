@@ -66,6 +66,7 @@ void fill_tetriminos(main_t *param, files_t *file)
 		return;
 
 	get_start_values(file->path, tmp->next);
+	tmp->next->id = file->id;
 	tmp->next->name = file->name;
 	tmp->next->path = file->path;
 	tmp->next->form = get_form(file->path, tmp->next);
