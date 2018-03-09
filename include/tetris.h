@@ -47,6 +47,8 @@ int 	load_all_tetriminos(stat_t info, main_t *param);
 int 	config_tetriminos(main_t *param);
 
 // managers/fill_struct.c
+void 	get_start_values(char *path, tetriminos_t *tetri);
+char 	**get_form(char *path, tetriminos_t *tetri);
 void 	fill_tetriminos(main_t *param, files_t *file);
 
 # endif

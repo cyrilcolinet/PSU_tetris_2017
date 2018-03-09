@@ -30,10 +30,29 @@ void get_start_values(char *path, tetriminos_t *tetri)
 	free(val);
 }
 
+char **get_form(char *path, tetriminos_t *tetri)
+{
+	char **arr = malloc(sizeof(char) * (tetri->height + 1));
+	int i = 0;
+	int fd = open(path, O_RDONLY);
+
+	if (arr == NULL | fd < 0)
+		return (NULL);
+
+	for (i = 0; i < tetri->height + 1; i++) {
+		arr[i] = get_next_line(fd);
+		if (arr[i] == NULL)
+			return (NULL);
+	}
+
+	arr[(tetri->height + 1)] = NULL;
+	close(fd);
+	return (arr);
+}
+
 void fill_tetriminos(main_t *param, files_t *file)
 {
 	tetriminos_t *tmp = NULL;
-	int *values;
 
 	if (param->tetri == NULL || file == NULL)
 		return;
@@ -47,4 +66,8 @@ void fill_tetriminos(main_t *param, files_t *file)
 		return;
 
 	get_start_values(file->path, tmp->next);
+	tmp->next->name = file->name;
+	tmp->next->path = file->path;
+	tmp->next->form = get_form(file->path, tmp->next);
+	tmp->next->next = NULL;
 }
