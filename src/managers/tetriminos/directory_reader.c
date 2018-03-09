@@ -31,7 +31,7 @@ files_t *get_all_files(main_t *param)
 	int err = 0;
 	DIR *dir = opendir("./tetriminos/");
 	dir_t *dent = NULL;
-	files_t *files = malloc(sizeof(main_t));
+	files_t *files = malloc(sizeof(files_t));
 
 	if (dir == NULL || files == NULL)
 		return (NULL);
