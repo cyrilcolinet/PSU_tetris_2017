@@ -29,6 +29,7 @@ char 	*get_next_line(int fdesc);
 //map_management
 void 	display_game(main_t *param);
 void 	display_map(void);
+void 	display_score(void);
 
 //create_tetris_title
 void 	create_tetris_title(void);

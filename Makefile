@@ -20,6 +20,7 @@ SRC_FILES	= 	main.c		\
 			managers/errors/check_err.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\
+			managers/map/display_score.c	\
 			managers/map/create_tetris_title.c	\
 			managers/map/tetris_letter/letter_1.c	\
 			managers/map/tetris_letter/letter_2.c	\
