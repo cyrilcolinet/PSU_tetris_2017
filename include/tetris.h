@@ -34,11 +34,14 @@ void 	letter_4(void);
 void 	letter_5(void);
 void 	letter_6(void);
 
-// managers
+// managers/directory_reader.c
 void 	fill_files(files_t *files, char *path, char *name);
 int 	throw_directory(files_t *files, main_t *param, dir_t *dent);
 files_t *get_all_files(main_t *param);
 int 	load_all_tetriminos(stat_t info, main_t *param);
 int 	config_tetriminos(main_t *param);
+
+// managers/fill_struct.c
+void 	fill_tetriminos(main_t *param, files_t *file);
 
 # endif

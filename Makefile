@@ -28,6 +28,7 @@ SRC_FILES	= 	main.c		\
 			managers/map/tetris_letter/letter_5.c	\
 			managers/map/tetris_letter/letter_6.c	\
 			managers/tetriminos/directory_reader.c 	\
+			managers/tetriminos/fill_struct.c 		\
 			utils/struct_utils.c
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
