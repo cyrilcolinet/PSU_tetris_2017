@@ -7,8 +7,14 @@
 
 #include "tetris.h"
 
-static void diplay_value_score()
-{}
+static void display_value_score()
+{
+	mvprintw( 10, 3, "High Score");
+	mvprintw( 11, 3, "Score");
+	mvprintw( 13, 3, "Lines");
+	mvprintw( 14, 3, "Level");
+	mvprintw( 16, 3, "Timer");
+}
 
 void display_score(void)
 {
