@@ -67,7 +67,6 @@ files_t *get_all_files(main_t *param)
 
 int load_all_tetriminos(stat_t info, main_t *param)
 {
-	//files_t *files = get_all_files(param);
 	files_t *tmp = get_all_files(param);
 	int id = 0;
 

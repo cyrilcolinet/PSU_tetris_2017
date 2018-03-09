@@ -31,10 +31,10 @@ typedef struct files_t {
 } files_t;
 
 typedef struct tetriminos {
+	int id;
 	int height;
 	int width;
 	int color;
-	int id;
 	char *name;
 	char **form;
 	char *path;
