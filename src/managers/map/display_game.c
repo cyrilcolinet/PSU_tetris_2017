@@ -27,6 +27,7 @@ void display_game(main_t *param)
 		clear();
 		create_tetris_title();
 		display_map();
+		display_score();
 		refresh();
 		n = getch();
 	}
