@@ -75,7 +75,6 @@ int load_all_tetriminos(stat_t info, main_t *param)
 		return (84);
 
 	while (tmp->next != NULL) {
-		printf("new:\n id: %d\n name: %s\n path: %s\n", ++id, tmp->next->name, tmp->next->path);
 		fill_tetriminos(param, tmp->next);
 		tmp = tmp->next;
 	}
