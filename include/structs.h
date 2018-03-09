@@ -15,6 +15,9 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <ncurses.h>
+# include <error.h>
+# include <errno.h>
+# include <string.h>
 
 typedef struct stat stat_t;
 

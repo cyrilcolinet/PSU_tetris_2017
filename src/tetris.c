@@ -9,7 +9,10 @@
 
 int tetris(int ac, char **av, main_t *param)
 {
-	(void)ac, (void)av, (void)param;
+	int err = config_tetriminos(param);
+
+	if (err != 0)
+		return (err);
 
 	return (0);
 }
