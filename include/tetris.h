@@ -8,6 +8,7 @@
 # ifndef TETRIS_H
 # define TETRIS_H
 
+# include "my.h"
 # include "structs.h"
 
 // tetris.c

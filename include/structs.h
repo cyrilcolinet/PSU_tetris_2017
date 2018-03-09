@@ -18,12 +18,20 @@
 # include <error.h>
 # include <errno.h>
 # include <string.h>
+# include <dirent.h>
 
 typedef struct stat stat_t;
+typedef struct dirent dir_t;
+
+typedef struct files_t {
+	char *file;
+	struct files_t *next;
+} files_t;
 
 typedef struct tetriminos {
 	char *name;
 	char **form;
+	char *path;
 	struct tetriminos *next;
 } tetriminos_t;
 
