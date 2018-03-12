@@ -46,6 +46,7 @@ char **get_form(char *path, tetriminos_t *tetri)
 
 	for (i = 0; i < tetri->height + 1; i++) {
 		arr[i] = get_next_line(fd);
+
 		if (arr[i] == NULL)
 			return (NULL);
 	}
