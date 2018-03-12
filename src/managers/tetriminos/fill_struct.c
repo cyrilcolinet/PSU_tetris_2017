@@ -70,7 +70,7 @@ void fill_tetriminos(main_t *param, files_t *file)
 	if (tmp->next == NULL)
 		return;
 
-	printf("file = %s\n", file->name);
+	printf("file = %s\n", file->path);
 	get_start_values(file->path, tmp->next);
 	tmp->next->id = file->id;
 	tmp->next->name = file->name;
