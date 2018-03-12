@@ -5,27 +5,32 @@
 ** fill_struct functions
 */
 
-
 # include "tetris.h"
 
 void get_start_values(char *path, tetriminos_t *tetri)
 {
 	int fd = open(path, O_RDONLY);
 	char *val = NULL;
+	char **tmp = NULL;
 	char **res = NULL;
 
 	if (fd < 0)
 		return;
 
 	val = get_next_line(fd);
+	printf("gnl = %s\n", val);
 	close(fd);
 
 	if (val != NULL) {
-		res = my_strtok(val, ' ');
+		tmp = my_strtok(val, '\n');
+		res = my_strtok(tmp[0], ' ');
+		for (int i = 0; res[i] != NULL; i++)
+			printf("res[%d] = %s\n", i, res[i]);
 		tetri->height = my_atoi(res[0]);
 		tetri->width = my_atoi(res[1]);
 		tetri->color = my_atoi(res[2]);
 		my_freetab(res);
+		my_freetab(tmp);
 	}
 	free(val);
 }
@@ -36,7 +41,7 @@ char **get_form(char *path, tetriminos_t *tetri)
 	int i = 0;
 	int fd = open(path, O_RDONLY);
 
-	if (arr == NULL | fd < 0)
+	if (arr == NULL || fd < 0)
 		return (NULL);
 
 	for (i = 0; i < tetri->height + 1; i++) {
@@ -65,6 +70,7 @@ void fill_tetriminos(main_t *param, files_t *file)
 	if (tmp->next == NULL)
 		return;
 
+	printf("file = %s\n", file->name);
 	get_start_values(file->path, tmp->next);
 	tmp->next->id = file->id;
 	tmp->next->name = file->name;
