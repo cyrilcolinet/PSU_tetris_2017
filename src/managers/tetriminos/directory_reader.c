@@ -27,7 +27,7 @@ void fill_files(files_t *files, char *path, char *name)
 	my_freetab(real_name);
 }
 
-int throw_directory(files_t *files, main_t *param, dir_t *dent)
+int throw_directory(files_t *files, dir_t *dent)
 {
 	stat_t info;
 	char *path = NULL;
@@ -45,7 +45,7 @@ int throw_directory(files_t *files, main_t *param, dir_t *dent)
 	return (0);
 }
 
-files_t *get_all_files(main_t *param)
+files_t *get_all_files(void)
 {
 	int err = 0;
 	DIR *dir = opendir("./tetriminos/");
@@ -57,7 +57,7 @@ files_t *get_all_files(main_t *param)
 
 	files->next = NULL;
 	while ((dent = readdir(dir)) != NULL) {
-		err += throw_directory(files, param, dent);
+		err += throw_directory(files, dent);
 	}
 	if (err > 0)
 		write(2, "Reading terminated with errors.\n", 32);
@@ -65,9 +65,9 @@ files_t *get_all_files(main_t *param)
 	return (files);
 }
 
-int load_all_tetriminos(stat_t info, main_t *param)
+int load_all_tetriminos(main_t *param)
 {
-	files_t *tmp = get_all_files(param);
+	files_t *tmp = get_all_files();
 	int id = 0;
 
 	if (tmp == NULL)
@@ -94,5 +94,5 @@ int config_tetriminos(main_t *param)
 		return (84);
 	}
 
-	return (load_all_tetriminos(info, param));
+	return (load_all_tetriminos(param));
 }

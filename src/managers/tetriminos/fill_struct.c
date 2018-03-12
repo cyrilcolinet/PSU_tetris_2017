@@ -18,14 +18,11 @@ void get_start_values(char *path, tetriminos_t *tetri)
 		return;
 
 	val = get_next_line(fd);
-	printf("gnl = %s\n", val);
 	close(fd);
 
 	if (val != NULL) {
 		tmp = my_strtok(val, '\n');
 		res = my_strtok(tmp[0], ' ');
-		for (int i = 0; res[i] != NULL; i++)
-			printf("res[%d] = %s\n", i, res[i]);
 		tetri->height = my_atoi(res[0]);
 		tetri->width = my_atoi(res[1]);
 		tetri->color = my_atoi(res[2]);
@@ -70,8 +67,6 @@ void fill_tetriminos(main_t *param, files_t *file)
 	tmp->next = malloc(sizeof(tetriminos_t));
 	if (tmp->next == NULL)
 		return;
-
-	printf("file = %s\n", file->path);
 	get_start_values(file->path, tmp->next);
 	tmp->next->id = file->id;
 	tmp->next->name = file->name;
