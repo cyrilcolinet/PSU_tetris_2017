@@ -37,7 +37,7 @@ void get_start_values(char *path, tetriminos_t *tetri)
 
 char **get_form(char *path, tetriminos_t *tetri)
 {
-	char **arr = malloc(sizeof(char) * (tetri->height + 1));
+	char **arr = malloc(sizeof(char *) * (tetri->height + 1));
 	int i = 0;
 	int fd = open(path, O_RDONLY);
 
