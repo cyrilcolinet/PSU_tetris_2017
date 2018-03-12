@@ -50,7 +50,7 @@ char **get_form(char *path, tetriminos_t *tetri)
 			return (NULL);
 	}
 
-	arr[(tetri->height + 1)] = NULL;
+	arr[tetri->height] = NULL;
 	close(fd);
 	return (arr);
 }
