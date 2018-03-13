@@ -20,6 +20,7 @@ int 	tetris_main(int ac, char **av);
 int 	check_err(int ac, char **av);
 
 // utils/struct_utils.c
+void 	free_files(files_t *node);
 void 	free_all(main_t *main);
 main_t 	*configure(void);
 

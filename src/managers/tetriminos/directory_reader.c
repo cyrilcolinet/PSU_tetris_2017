@@ -68,6 +68,7 @@ files_t *get_all_files(void)
 int load_all_tetriminos(main_t *param)
 {
 	files_t *tmp = get_all_files();
+	files_t *node = tmp;
 	int id = 0;
 
 	if (tmp == NULL)
@@ -79,6 +80,7 @@ int load_all_tetriminos(main_t *param)
 		tmp = tmp->next;
 	}
 
+	free_files(node);
 	return (0);
 }
 

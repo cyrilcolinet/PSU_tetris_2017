@@ -7,6 +7,19 @@
 
 # include "tetris.h"
 
+void free_files(files_t *node)
+{
+	files_t *tmp = NULL;
+
+	while (node != NULL) {
+		tmp = node;
+		node = node->next;
+		free(tmp->name);
+		free(tmp->path);
+		free(tmp);
+	}
+}
+
 void free_all(main_t *param)
 {
 	tetriminos_t *tmp = NULL;
