@@ -14,9 +14,7 @@ void fill_files(files_t *files, char *path, char *name)
 
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-
 	tmp->next = malloc(sizeof(files_t));
-
 	if (tmp->next == NULL)
 		return;
 
@@ -68,19 +66,17 @@ files_t *get_all_files(void)
 int load_all_tetriminos(main_t *param)
 {
 	files_t *tmp = get_all_files();
-	files_t *node = tmp;
 	int id = 0;
 
 	if (tmp == NULL)
 		return (84);
 
-	while (tmp->next != NULL) {
-		tmp->next->id = ++id;
-		fill_tetriminos(param, tmp->next);
+	while (tmp != NULL) {
+		tmp->id = ++id;
+		fill_tetriminos(param, tmp);
+//		free_files(tmp);
 		tmp = tmp->next;
 	}
-
-	free_files(node);
 	return (0);
 }
 

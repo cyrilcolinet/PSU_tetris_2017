@@ -13,16 +13,7 @@ int tetris(int ac, char **av, main_t *param)
 
 	if (err != 0)
 		return (err);
-
-	/*tetriminos_t *tmp = param->tetri;
-
-	while (tmp->next != NULL) {
-	printf("h, w, c: %d %d %d\n", tmp->next->height, tmp->next->width, tmp->next->color);
-	printf("name: %s\n", tmp->next->name);
-	for (int i = 0; tmp->next->form[i]; i++)
-		printf("form[%d]: %s\n", i, tmp->next->form[i]);
-		tmp = tmp->next;
-	}*/
+//display_game(param);
 	return (0);
 }
 
@@ -35,8 +26,7 @@ int tetris_main(int ac, char **av)
 		return (84);
 	param = configure();
 	if (param == NULL)
-		return (84);
-	//display_game(param);
+		return (84);	
 	err = tetris(ac, av, param);
 	free_all(param);
 	return (err);

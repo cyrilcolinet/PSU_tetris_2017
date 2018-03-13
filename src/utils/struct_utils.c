@@ -7,16 +7,15 @@
 
 # include "tetris.h"
 
-void free_files(files_t *node)
+void free_files(files_t *tmp)
 {
-	files_t *tmp = NULL;
-
-	while (node != NULL) {
-		tmp = node;
-		node = node->next;
-		free(tmp->name);
-		free(tmp->path);
-		free(tmp);
+	while (tmp != NULL) {
+		tmp = tmp->next;
+		if (!tmp) {
+			free(tmp->name);
+			free(tmp->path);
+			free(tmp);
+		}
 	}
 }
 
@@ -27,9 +26,9 @@ void free_all(main_t *param)
 	while (param->tetri != NULL) {
 		tmp = param->tetri;
 		param->tetri = param->tetri->next;
+		my_freetab(tmp->form);
 		free(tmp);
 	}
-
 	free(param);
 }
 
