@@ -8,10 +8,14 @@
 # ifndef TETRIS_H
 # define TETRIS_H
 
-# define READ_SIZE (128)
+# define READ_SIZE 			(128)
+# define TETRIMINOS_DIR 	("./tetriminos/")
 
 # include "my.h"
 # include "structs.h"
+
+typedef struct stat stat_t;
+typedef struct dirent dir_t;
 
 // tetris.c
 int 	tetris_main(int ac, char **av);
@@ -20,7 +24,6 @@ int 	tetris_main(int ac, char **av);
 int 	check_err(int ac, char **av);
 
 // utils/struct_utils.c
-void 	free_files(files_t *node);
 void 	free_all(main_t *main);
 main_t 	*configure(void);
 
@@ -49,8 +52,13 @@ files_t *get_all_files(void);
 int 	load_all_tetriminos(main_t *param);
 int 	config_tetriminos(main_t *param);
 
-// managers/fill_struct.c
-char 	**get_form(char *path, tetriminos_t *tetri);
-void 	fill_tetriminos(main_t *param, files_t *file);
+// managers/tetrimiis/parse_file.c
+char 	*get_first_line(char *file);
+void 	set_first_values(tetriminos_t *tmp, char *path);
+char 	*parse_filename(char *file);
+char 	**get_tetrimino_form(char *file, int height);
+
+// managers/tetriminos/load_tetriminos.c
+
 
 # endif

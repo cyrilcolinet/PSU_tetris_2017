@@ -20,9 +20,6 @@
 # include <string.h>
 # include <dirent.h>
 
-typedef struct stat stat_t;
-typedef struct dirent dir_t;
-
 typedef struct files_t {
 	int id;
 	char *name;

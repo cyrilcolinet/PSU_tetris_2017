@@ -29,8 +29,8 @@ SRC_FILES	= 	main.c		\
 			managers/map/tetris_letter/letter_4.c	\
 			managers/map/tetris_letter/letter_5.c	\
 			managers/map/tetris_letter/letter_6.c	\
-			managers/tetriminos/directory_reader.c 	\
-			managers/tetriminos/fill_struct.c 		\
+			managers/tetriminos/load_tetriminos.c 	\
+			managers/tetriminos/parse_file.c 		\
 			utils/get_next_line.c 	\
 			utils/struct_utils.c
 

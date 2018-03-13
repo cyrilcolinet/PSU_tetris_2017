@@ -13,7 +13,7 @@ int tetris(int ac, char **av, main_t *param)
 
 	if (err != 0)
 		return (err);
-//display_game(param);
+	// display_game(param);
 	return (0);
 }
 
@@ -26,7 +26,7 @@ int tetris_main(int ac, char **av)
 		return (84);
 	param = configure();
 	if (param == NULL)
-		return (84);	
+		return (84);
 	err = tetris(ac, av, param);
 	free_all(param);
 	return (err);
