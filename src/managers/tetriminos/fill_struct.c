@@ -16,10 +16,8 @@ void get_start_values(char *path, tetriminos_t *tetri)
 
 	if (fd < 0)
 		return;
-
 	val = get_next_line(fd);
 	close(fd);
-
 	if (val != NULL) {
 		tmp = my_strtok(val, '\n');
 		res = my_strtok(tmp[0], ' ');
