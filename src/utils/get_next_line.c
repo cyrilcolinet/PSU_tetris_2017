@@ -5,7 +5,7 @@
 ** get_next_line functions
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 static char *my_realloc2(char *ptr, unsigned int size)
 {

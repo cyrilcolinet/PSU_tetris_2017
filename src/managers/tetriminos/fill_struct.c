@@ -7,27 +7,28 @@
 
 # include "tetris.h"
 
-void get_start_values(char *path, tetriminos_t *tetri)
+void set_start_values(char *line, tetriminos_t *tetri)
 {
-	int fd = open(path, O_RDONLY);
-	char *val = NULL;
-	char **tmp = NULL;
-	char **res = NULL;
+	char **arr = NULL;
 
-	if (fd < 0)
-		return;
-	val = get_next_line(fd);
-	close(fd);
-	if (val != NULL) {
-		tmp = my_strtok(val, '\n');
-		res = my_strtok(tmp[0], ' ');
-		tetri->height = my_atoi(res[0]);
-		tetri->width = my_atoi(res[1]);
-		tetri->color = my_atoi(res[2]);
-		my_freetab(res);
-		my_freetab(tmp);
+	arr = my_strtok(line, ' ');
+	tetri->width = my_atoi(arr[0]);
+	tetri->height = my_atoi(arr[1]);
+	tetri->color = my_atoi(arr[2]);
+	my_freetab(arr);
+}
+
+void move_form(char **form, tetriminos_t *tetri)
+{
+	int count = 0;
+	int i = 0;
+
+	for (count = 0; form[count]; count++);
+	while (form[i++] != NULL) {
+		tetri->form[i] = form[i - 1];
 	}
-	free(val);
+
+	tetri->form[count] = NULL;
 }
 
 char **get_form(char *path, tetriminos_t *tetri)
@@ -39,11 +40,8 @@ char **get_form(char *path, tetriminos_t *tetri)
 	if (arr == NULL || fd < 0)
 		return (NULL);
 
-	for (i = 0; i < tetri->height + 1; i++) {
+	for (i = 0; arr[i] != NULL; i++) {
 		arr[i] = get_next_line(fd);
-
-		if (arr[i] == NULL)
-			return (NULL);
 	}
 
 	arr[tetri->height] = NULL;
@@ -65,10 +63,16 @@ void fill_tetriminos(main_t *param, files_t *file)
 	tmp->next = malloc(sizeof(tetriminos_t));
 	if (tmp->next == NULL)
 		return;
-	get_start_values(file->path, tmp->next);
 	tmp->next->id = file->id;
 	tmp->next->name = file->name;
 	tmp->next->path = file->path;
 	tmp->next->form = get_form(file->path, tmp->next);
+	set_start_values(tmp->next->form[0], tmp->next);
+	move_form(tmp->next->form, tmp->next);
 	tmp->next->next = NULL;
+	printf("w, h, c: %d %d %d\n", tmp->next->width, tmp->next->height, tmp->next->color);
+	printf("name: %s\n", tmp->next->name);
+	for (int i = 0; tmp->next->form[i]; i++)
+		printf("form[%d]: %s\n", i, tmp->next->form[i]);
+	printf("\n");
 }
