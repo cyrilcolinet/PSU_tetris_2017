@@ -8,18 +8,6 @@
 # ifndef STRUCTS_TETRIS_H
 # define STRUCTS_TETRIS_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <ncurses.h>
-# include <error.h>
-# include <errno.h>
-# include <string.h>
-# include <dirent.h>
-
 typedef struct files_t {
 	int id;
 	char *name;

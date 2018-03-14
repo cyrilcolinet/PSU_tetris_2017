@@ -11,11 +11,25 @@
 # define READ_SIZE 			(128)
 # define TETRIMINOS_DIR 	("./tetriminos/")
 
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <ncurses.h>
+# include <error.h>
+# include <errno.h>
+# include <string.h>
+# include <dirent.h>
+# include <getopt.h>
+
 # include "my.h"
 # include "structs.h"
 
 typedef struct stat stat_t;
 typedef struct dirent dir_t;
+typedef struct option opt_t;
 
 // tetris.c
 int 	tetris_main(int ac, char **av);
