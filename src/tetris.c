@@ -23,7 +23,6 @@ int tetris(int ac, char **av, main_t *param)
 		}
 	}
 	if (param->debug == 1) {
-		printf("oui\n");
 		/* while (n == -1) { */
 		/* 	if (getch()) */
 		/* 		n = 2; */

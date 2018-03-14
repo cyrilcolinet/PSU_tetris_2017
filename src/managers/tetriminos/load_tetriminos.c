@@ -28,23 +28,13 @@ void fill_struct(main_t *param, char *path, char *file)
 	tmp->next->name = parse_filename(file);
 	tmp->next->path = path;
 	tmp->next->next = NULL;
-	printf("id: %d\n", id);
-	if (err == 0) {
-		printf("height: %d\nwidth: %d\ncolor: %d\n", tmp->next->height, tmp->next->width, tmp->next->color);
-	}
-	printf("path: %s\n", tmp->next->path);
-	printf("file: %s\n", tmp->next->name);
 	if (err == 0) {
 		tmp->next->form = get_tetrimino_form(path, tmp->next->height);
-		for (int i = 0; tmp->next->form[i] != NULL; i++)
-			printf("form[%d]: %s\n", i, tmp->next->form[i]);
 		tmp->next->invalid = 0;
 	} else {
 		tmp->next->form = NULL;
 		tmp->next->invalid = 1;
 	}	
-	printf("invalid: %d\n", tmp->next->invalid);
-	printf("\n");
 }
 
 void setup_tetrimino(dir_t *dirent, main_t *param)
