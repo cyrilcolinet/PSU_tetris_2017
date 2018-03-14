@@ -28,7 +28,17 @@ typedef struct tetriminos {
 } tetriminos_t;
 
 typedef struct config {
-
+	char kl;
+	char kr;
+	char kt;
+	char kd;
+	char kq;
+	char kp;
+	char *next;
+	int level;
+	int size_w;
+	int size_h;
+	int nb_tetri;
 } config_t;
 
 typedef struct main {
