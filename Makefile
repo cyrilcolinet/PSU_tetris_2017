@@ -19,6 +19,7 @@ SRC_FILES	= 	main.c		\
 			tetris.c	\
 			managers/arguments/initialise_config.c	\
 			managers/tetriminos/error/error_size_color.c	\
+			managers/tetriminos/error/error_form.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\
 			managers/map/display_score.c	\

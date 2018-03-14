@@ -8,11 +8,12 @@
 # include "tetris.h"
 
 int tetris(int ac, char **av, main_t *param)
-{
+{	
 	initialise_config(param);
 	if (config_tetriminos(param) != 0)
 		return (84);
-	
+
+	error_form(param);
 	for (int i = 0; i < ac; i++) {
 		param->debug = 0;
 		if (av[i][0] == '-' && av[i][1] == 'D'

@@ -1,0 +1,12 @@
+/*
+** EPITECH PROJECT, 2018
+** error_form
+** File description:
+** tetris
+*/
+
+#include "teris.h"
+
+void error_form(main_t *param)
+{
+}

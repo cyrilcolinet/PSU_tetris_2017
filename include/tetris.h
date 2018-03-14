@@ -37,6 +37,7 @@ void	initialise_config(main_t *param);
 
 //error_management
 int 	error_size_color(char *str);
+void	error_form(main_t *param);
 
 // utils/struct_utils.c
 void 	free_all(main_t *main);
