@@ -7,9 +7,29 @@
 
 #include "tetris.h"
 
+static void create_next(main_t *param, tetriminos_t *tmp)
+{
+	int nb = 0;
+
+	for (int i = 0; tmp->form[i] != NULL; i++)
+		nb++;
+	param->current = malloc(sizeof(char *) * (nb + 1));
+	param->current[nb] = NULL;
+	for (int i = 0; tmp->form[i] != NULL; i++) {
+		nb = 0;
+		for (int j = 0; tmp->form[i][j] != '\0'; j++)
+			nb++;
+		param->current[i] = malloc(sizeof(char) * (nb + 1));
+		for (int j = 0; tmp->form[i][j] != '\0'; j++)
+			param->current[i][j] = tmp->form[i][j];
+		param->current[i][nb] = '\0';
+	}
+}
+
 void display_game(main_t *param)
 {
 	int n = 1;
+	tetriminos_t *tmp = param->tetri;
 
 	initscr();
 	keypad(stdscr, TRUE);
@@ -23,12 +43,14 @@ void display_game(main_t *param)
 	init_pair(4, COLOR_BLUE, -1);
 	init_pair(5, COLOR_MAGENTA, -1);
 	init_pair(6, COLOR_CYAN, -1);
-	while (n != 27) {
+
+	create_next(param, tmp->next);
+	while (n != param->config.kq) {
 		clear();
 		create_tetris_title();
-		display_map();
-		display_score();
-		display_next_tetri();
+		display_map(param);
+		display_score(param);
+		display_next_tetri(param, tmp->next);
 		refresh();
 		n = getch();
 	}

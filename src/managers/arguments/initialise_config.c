@@ -17,7 +17,7 @@ void initialise_config(main_t *param)
 	param->config.kp = 'p';
 	param->config.next = false;
 	param->config.level = 1;
-	param->config.size_w = 20;
-	param->config.size_h = 10;
+	param->config.size_w = 10;
+	param->config.size_h = 20;
 	param->config.nb_tetri = 0;
 }

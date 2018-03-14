@@ -21,12 +21,11 @@ static void display_next_tetri_size_1(int n, int b)
 	}
 }
 
-void display_next_tetri(void)
+void display_next_tetri(main_t *param, tetriminos_t *tmp)
 {
-	int y = 10;
-	int n = 33 + y * 2 + 4;
-	int a = 3;
-	int b = 2;
+	int n = 33 + param->config.size_w * 2 + 4;
+	int a = tmp->width;
+	int b = tmp->height;
 
 	mvprintw(1 , n, "/");
 	mvprintw(1 + b + 1, n, "\\");
@@ -44,4 +43,6 @@ void display_next_tetri(void)
 	} else
 		display_next_tetri_size_1(n, b);
 	mvprintw(1, n + 2, "next");
+	for (int i = 0; param->current[i] != NULL; i++)
+		mvprintw(2 + i, n + 2, param->current[i]);
 }

@@ -18,25 +18,27 @@ static int nb_length(int nb)
 	return (n);
 }
 
-static void display_value_score()
+static void display_value_score(main_t *param)
 {
-	int nb = nb_length(100);
-	mvprintw( 10, 26 - nb, "100");
-	nb = nb_length(1);
-	mvprintw( 11, 26 - nb, "1");
-	nb = nb_length(4957385);
-	mvprintw( 13, 26 - nb, "4957385");
-	nb = nb_length(2487);
-	mvprintw( 14, 26 - nb, "2487");
-	nb = nb_length(0);
-	/* if ( n < 10) { */
-	/* 	nb++;		 */
-	/* 	mvprintw( 16, 26 - nb, "01"); */
-	/* } else */
+	int nb = nb_length(param->high_score);
+
+	mvprintw( 10, 26 - nb, "%d", param->high_score);
+	nb = nb_length(param->score);
+	mvprintw( 11, 26 - nb, "%d", param->score);
+	nb = nb_length(param->lines);
+	mvprintw( 13, 26 - nb, "%d", param->lines);
+	nb = nb_length(param->level);
+	mvprintw( 14, 26 - nb, "%d", param->level);
+	nb = nb_length(param->timer);
+	if ( param->timer < 10) {
+		nb++;
 		mvprintw( 16, 26 - nb, "0");
+		mvprintw( 16, 26 - nb + 1, "%d", param->timer);
+	} else
+		mvprintw( 16, 26 - nb, "%d", param->timer);
 }
 
-void display_score(void)
+void display_score(main_t *param)
 {
 	mvprintw(8, 1, "/");
 	mvprintw(8, 28, "\\");
@@ -55,5 +57,5 @@ void display_score(void)
 	mvprintw( 13, 3, "Lines");
 	mvprintw( 14, 3, "Level");
 	mvprintw( 16, 3, "Timer");
-	display_value_score();
+	display_value_score(param);
 }

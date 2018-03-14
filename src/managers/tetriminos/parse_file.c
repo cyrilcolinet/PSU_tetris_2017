@@ -16,10 +16,8 @@ char *get_first_line(char *file)
 
 	if (fd < 0)
 		return (NULL);
-
 	if (read(fd, buff, 19) < 0)
 		return (NULL);
-
 	chr = my_strchr(buff, '\n');
 	if (error_size_color(chr) == 1) {
 		free(chr);

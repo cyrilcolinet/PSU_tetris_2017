@@ -51,9 +51,9 @@ void	debug_mode(main_t *param);
 
 //map_management
 void 	display_game(main_t *param);
-void 	display_map(void);
-void 	display_score(void);
-void	display_next_tetri(void);
+void 	display_map(main_t *param);
+void 	display_score(main_t *param);
+void	display_next_tetri(main_t *param, tetriminos_t *tmp);
 
 //create_tetris_title
 void 	create_tetris_title(void);
