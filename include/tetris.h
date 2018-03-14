@@ -45,13 +45,6 @@ void 	letter_4(void);
 void 	letter_5(void);
 void 	letter_6(void);
 
-// managers/directory_reader.c
-void 	fill_files(files_t *files, char *path, char *name);
-int 	throw_directory(files_t *files, dir_t *dent);
-files_t *get_all_files(void);
-int 	load_all_tetriminos(main_t *param);
-int 	config_tetriminos(main_t *param);
-
 // managers/tetrimiis/parse_file.c
 char 	*get_first_line(char *file);
 void 	set_first_values(tetriminos_t *tmp, char *path);
