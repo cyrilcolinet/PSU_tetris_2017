@@ -34,7 +34,7 @@ typedef struct config {
 	char kd;
 	char kq;
 	char kp;
-	char *next;
+	bool next;
 	int level;
 	int size_w;
 	int size_h;
