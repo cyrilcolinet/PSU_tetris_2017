@@ -31,9 +31,11 @@ void fill_struct(main_t *param, char *path, char *file)
 	if (err == 0) {
 		tmp->next->form = get_tetrimino_form(path, tmp->next->height);
 		tmp->next->invalid = 0;
+		param->config.nb_tetri++;
 	} else {
 		tmp->next->form = NULL;
 		tmp->next->invalid = 1;
+		param->config.nb_tetri++;
 	}
 }
 

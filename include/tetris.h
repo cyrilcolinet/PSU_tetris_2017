@@ -33,6 +33,7 @@ typedef struct option opt_t;
 
 // tetris.c
 int 	tetris_main(int ac, char **av);
+void	initialise_config(main_t *param);
 
 //error_management
 int 	error_size_color(char *str);
@@ -45,7 +46,7 @@ main_t 	*configure(void);
 char 	*get_next_line(int fdesc);
 
 //debug_mode
-void debug_mode(main_t *param);
+void	debug_mode(main_t *param);
 
 //map_management
 void 	display_game(main_t *param);

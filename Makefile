@@ -17,6 +17,7 @@ TEST_DIR	= 	tests/
 
 SRC_FILES	= 	main.c		\
 			tetris.c	\
+			managers/arguments/initialise_config.c	\
 			managers/tetriminos/error/error_size_color.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\

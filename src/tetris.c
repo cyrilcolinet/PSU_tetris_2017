@@ -9,11 +9,10 @@
 
 int tetris(int ac, char **av, main_t *param)
 {
-	int err = config_tetriminos(param);
-	int n = -1;
-
-	if (err != 0)
-		return (err);
+	initialise_config(param);
+	if (config_tetriminos(param) != 0)
+		return (84);
+	
 	for (int i = 0; i < ac; i++) {
 		param->debug = 0;
 		if (av[i][0] == '-' && av[i][1] == 'D'

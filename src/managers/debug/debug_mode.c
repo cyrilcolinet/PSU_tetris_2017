@@ -11,28 +11,30 @@ void debug_mode(main_t *param)
 {
 	my_putstr("*** DEBUG MODE ***\n");
 	my_putstr("Key Left : ");
-	my_putstr("");
+	my_putchar(param->config.kl);
 	my_putstr("\nKey Right : ");
-	my_putstr("");
+	my_putchar(param->config.kr);
 	my_putstr("\nKey Turn : ");
-	my_putstr("");
+	my_putchar(param->config.kt);
 	my_putstr("\nKey Drop : ");
-	my_putstr("");
+	my_putchar(param->config.kd);
 	my_putstr("\nKey Quit : ");
-	my_putstr("");
+	my_putchar(param->config.kq);
 	my_putstr("\nKey Pause : ");
-	my_putstr("");
+	my_putchar(param->config.kp);
 	my_putstr("\nNext : ");
-	my_putstr("Yes");
-	my_putstr("No");
+	if (param->config.next)
+		my_putstr("Yes");
+	else
+		my_putstr("No");
 	my_putstr("\nLevel : ");
-	my_put_nbr(1);
+	my_put_nbr(param->config.level);
 	my_putstr("\nSize : ");
-	my_put_nbr(1);
+	my_put_nbr(param->config.size_w);
 	my_putstr("*");
-	my_put_nbr(1);
+	my_put_nbr(param->config.size_h);
 	my_putstr("\nTetriminos : ");
-	my_put_nbr(1);
+	my_put_nbr(param->config.nb_tetri);
 	my_putchar('\n');
 
 	tetriminos_t *tmp = param->tetri;
@@ -59,5 +61,6 @@ void debug_mode(main_t *param)
 		}
 		tmp = tmp->next;
 	}
+	my_putstr("Press any key to start Tetris\n");
 	param->debug = 1;
 }
