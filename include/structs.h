@@ -42,6 +42,8 @@ typedef struct config {
 } config_t;
 
 typedef struct main {
+	int ac;
+	char **av;
 	tetriminos_t *tetri;
 	config_t config;
 	char **next_form;
