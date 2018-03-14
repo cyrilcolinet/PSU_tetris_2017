@@ -70,7 +70,7 @@ int get_files(main_t *param)
 		setup_tetrimino(dirent, param);
 
 	closedir(dir);
-	return (84);
+	return (0);
 }
 
 int config_tetriminos(main_t *param)

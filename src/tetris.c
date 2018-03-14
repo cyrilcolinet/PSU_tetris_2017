@@ -13,7 +13,7 @@ int tetris(int ac, char **av, main_t *param)
 
 	if (err != 0)
 		return (err);
-	// display_game(param);
+	display_game(param);
 	return (0);
 }
 

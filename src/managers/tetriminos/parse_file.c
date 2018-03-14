@@ -37,8 +37,10 @@ void set_first_values(tetriminos_t *tmp, char *path)
 	tab = my_strtok(line, ' ');
 	free(line);
 
-	if (tab[2] == NULL)
+	if (tab[2] == NULL) {
+		my_freetab(tab);
 		return;
+	}
 
 	tmp->width = my_atoi(tab[0]);
 	tmp->height = my_atoi(tab[1]);
