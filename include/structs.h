@@ -32,6 +32,7 @@ typedef struct tetriminos {
 	int height;
 	int width;
 	int color;
+	int invalid;
 	char *name;
 	char **form;
 	char *path;

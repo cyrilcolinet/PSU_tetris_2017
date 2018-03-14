@@ -21,7 +21,7 @@ typedef struct dirent dir_t;
 int 	tetris_main(int ac, char **av);
 
 //error_management
-int 	check_err(int ac, char **av);
+int 	error_size_color(char *str);
 
 // utils/struct_utils.c
 void 	free_all(main_t *main);
@@ -47,7 +47,7 @@ void 	letter_6(void);
 
 // managers/tetrimiis/parse_file.c
 char 	*get_first_line(char *file);
-void 	set_first_values(tetriminos_t *tmp, char *path);
+int 	set_first_values(tetriminos_t *tmp, char *path);
 char 	*parse_filename(char *file);
 char 	**get_tetrimino_form(char *file, int height);
 

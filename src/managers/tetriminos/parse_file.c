@@ -21,31 +21,38 @@ char *get_first_line(char *file)
 		return (NULL);
 
 	chr = my_strchr(buff, '\n');
+	if (error_size_color(chr) == 1) {
+		free(chr);
+		close(fd);
+		return (NULL);
+	}
 	ret = my_strdup(chr);
 	free(chr);
+	close(fd);
 	return (ret);
 }
 
-void set_first_values(tetriminos_t *tmp, char *path)
+int set_first_values(tetriminos_t *tmp, char *path)
 {
 	char *line = get_first_line(path);
 	char **tab = NULL;
 
 	if (line == NULL)
-		return;
+		return (1);
 
 	tab = my_strtok(line, ' ');
 	free(line);
 
 	if (tab[2] == NULL) {
 		my_freetab(tab);
-		return;
+		return (1);
 	}
 
 	tmp->width = my_atoi(tab[0]);
 	tmp->height = my_atoi(tab[1]);
 	tmp->color = my_atoi(tab[2]);
 	my_freetab(tab);
+	return (0);
 }
 
 char *parse_filename(char *file)

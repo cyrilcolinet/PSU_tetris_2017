@@ -20,10 +20,8 @@ int tetris(int ac, char **av, main_t *param)
 int tetris_main(int ac, char **av)
 {
 	main_t *param;
-	int err = check_err(ac, av);
-
-	if (err == 1)
-		return (84);
+	int err;
+	
 	param = configure();
 	if (param == NULL)
 		return (84);

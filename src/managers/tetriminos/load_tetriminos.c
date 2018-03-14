@@ -11,6 +11,7 @@ void fill_struct(main_t *param, char *path, char *file)
 {
 	tetriminos_t *tmp = param->tetri;
 	int id = 0;
+	int err;
 
 	while (tmp->next != NULL) {
 		tmp = tmp->next;
@@ -22,19 +23,27 @@ void fill_struct(main_t *param, char *path, char *file)
 	if (tmp->next == NULL)
 		return;
 
-	set_first_values(tmp->next, path);
+	err = set_first_values(tmp->next, path);
 	tmp->next->id = id;
 	tmp->next->name = parse_filename(file);
-	tmp->next->form = get_tetrimino_form(path, tmp->next->height);
 	tmp->next->path = path;
 	tmp->next->next = NULL;
-
 	printf("id: %d\n", id);
-	printf("height: %d\nwidth: %d\ncolor: %d\n", tmp->next->height, tmp->next->width, tmp->next->color);
+	if (err == 0) {
+		printf("height: %d\nwidth: %d\ncolor: %d\n", tmp->next->height, tmp->next->width, tmp->next->color);
+	}
 	printf("path: %s\n", tmp->next->path);
 	printf("file: %s\n", tmp->next->name);
-	for (int i = 0; tmp->next->form[i] != NULL; i++)
-		printf("form[%d]: %s\n", i, tmp->next->form[i]);
+	if (err == 0) {
+		tmp->next->form = get_tetrimino_form(path, tmp->next->height);
+		for (int i = 0; tmp->next->form[i] != NULL; i++)
+			printf("form[%d]: %s\n", i, tmp->next->form[i]);
+		tmp->next->invalid = 0;
+	} else {
+		tmp->next->form = NULL;
+		tmp->next->invalid = 1;
+	}	
+	printf("invalid: %d\n", tmp->next->invalid);
 	printf("\n");
 }
 
