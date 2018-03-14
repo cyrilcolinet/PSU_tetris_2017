@@ -30,7 +30,8 @@ SRC_FILES	= 	main.c		\
 			managers/map/tetris_letter/letter_5.c	\
 			managers/map/tetris_letter/letter_6.c	\
 			managers/tetriminos/load_tetriminos.c 	\
-			managers/tetriminos/parse_file.c 		\
+			managers/tetriminos/parse_file.c 	\
+			managers/debug/debug_mode.c	\
 			utils/get_next_line.c 	\
 			utils/struct_utils.c
 

@@ -44,6 +44,9 @@ main_t 	*configure(void);
 // utils/get_next_line.c
 char 	*get_next_line(int fdesc);
 
+//debug_mode
+void debug_mode(main_t *param);
+
 //map_management
 void 	display_game(main_t *param);
 void 	display_map(void);

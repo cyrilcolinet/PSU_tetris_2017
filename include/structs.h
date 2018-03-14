@@ -44,6 +44,7 @@ typedef struct config {
 typedef struct main {
 	tetriminos_t *tetri;
 	config_t config;
+	int debug;
 } main_t;
 
 # endif
