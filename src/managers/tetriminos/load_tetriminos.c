@@ -42,7 +42,7 @@ void fill_struct(main_t *param, char *path, char *file)
 	} else {
 		tmp->next->form = NULL;
 		tmp->next->invalid = 1;
-	}	
+	}
 	printf("invalid: %d\n", tmp->next->invalid);
 	printf("\n");
 }
