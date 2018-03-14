@@ -34,13 +34,7 @@ void fill_struct(main_t *param, char *path, char *file)
 	} else {
 		tmp->next->form = NULL;
 		tmp->next->invalid = 1;
-<<<<<<< HEAD
-	}	
-=======
 	}
-	printf("invalid: %d\n", tmp->next->invalid);
-	printf("\n");
->>>>>>> ef18785aa1635ff5a7f1dcec7cec7665b31b4de0
 }
 
 void setup_tetrimino(dir_t *dirent, main_t *param)
