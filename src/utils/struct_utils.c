@@ -33,6 +33,7 @@ main_t *configure(void)
 	if (param->tetri == NULL)
 		return (NULL);
 
+	param->tetri->id = -1;
 	param->tetri->name = NULL;
 	param->tetri->form = NULL;
 	param->tetri->path = NULL;
