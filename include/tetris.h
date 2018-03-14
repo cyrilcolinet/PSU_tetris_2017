@@ -59,6 +59,9 @@ char 	*parse_filename(char *file);
 char 	**get_tetrimino_form(char *file, int height);
 
 // managers/tetriminos/load_tetriminos.c
-
+void 	fill_struct(main_t *param, char *path, char *file);
+void 	setup_tetrimino(dir_t *dirent, main_t *param);
+int 	get_files(main_t *param);
+int 	config_tetriminos(main_t *param);
 
 # endif
