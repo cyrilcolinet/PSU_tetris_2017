@@ -10,18 +10,18 @@
 opt_t configure_args(config_t *config)
 {
 	opt_t options[] = {
-			{ "level", required_argument, NULL, 1 },
-			{ "key-left", required_argument, NULL, 2 },
-			{ "key-rigth", required_argument, NULL, 3 },
-			{ "key-turn", required_argument, NULL, 4 },
-			{ "key-drop", required_argument, NULL, 5 },
-			{ "key-quit", required_argument, NULL, 6 },
-			{ "key-pause", required_argument, NULL, 7 },
-			{ "map-size", required_argument, NULL, 8 },
-			{ "without-next", no_argument, NULL, 9 },
-			{ "debug", no_argument, NULL, 10 },
-			{ "help", no_argument, NULL, 11 },
-			{ 0, 0, 0,  }
+		{ "without-next", no_argument, &param->config->next, 0 },
+		{ "debug", no_argument, &param->debug, 1 },
+		{ "help", no_argument, NULL, 2 },
+		{ "level", required_argument, NULL, 1 },
+		{ "key-left", required_argument, NULL, 2 },
+		{ "key-rigth", required_argument, NULL, 3 },
+		{ "key-turn", required_argument, NULL, 4 },
+		{ "key-drop", required_argument, NULL, 5 },
+		{ "key-quit", required_argument, NULL, 6 },
+		{ "key-pause", required_argument, NULL, 7 },
+		{ "map-size", required_argument, NULL, 8 },
+		{ 0, 0, 0,  }
 	};
 
 	return (options);

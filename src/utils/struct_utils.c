@@ -43,5 +43,7 @@ main_t *configure(void)
 	param->tetri->form = NULL;
 	param->tetri->path = NULL;
 	param->tetri->next = NULL;
+	param->current = NULL;
+	param->next = NULL;
 	return (param);
 }

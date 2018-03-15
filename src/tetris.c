@@ -32,7 +32,7 @@ int tetris(int ac, char **av, main_t *param)
 	}
 	if (param->debug == 1) {
 	}
-	display_game(param);
+	//display_game(param);
 	return (0);
 }
 

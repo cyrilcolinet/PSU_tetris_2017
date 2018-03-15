@@ -8,14 +8,12 @@
 # ifndef STRUCTS_TETRIS_H
 # define STRUCTS_TETRIS_H
 
-typedef struct files_t {
-	int id;
-	char *name;
-	char *path;
-	struct files_t *next;
-} files_t;
+struct 	tetriminos_t;
+struct 	args_t;
+struct 	config_t;
+struct 	main_t;
 
-typedef struct tetriminos {
+typedef struct tetriminos_t {
 	int id;
 	int height;
 	int width;
@@ -24,24 +22,32 @@ typedef struct tetriminos {
 	char *name;
 	char **form;
 	char *path;
-	struct tetriminos *next;
-} tetriminos_t;
+	struct tetriminos_t *next;
+} 	tetriminos_t;
 
-typedef struct config {
+typedef struct args_t {
+	char 			*name;
+	int 			has_arg;
+	int 			*flag;
+	int 			val;
+	struct args_t 	*next;
+} 	args_t;
+
+typedef struct config_t {
 	char kl;
 	char kr;
 	char kt;
 	char kd;
 	char kq;
 	char kp;
-	bool next;
+	int next;
 	int level;
 	int size_w;
 	int size_h;
 	int nb_tetri;
-} config_t;
+} 	config_t;
 
-typedef struct main {
+typedef struct main_t {
 	int ac;
 	char **av;
 	tetriminos_t *tetri;
@@ -56,6 +62,6 @@ typedef struct main {
 	int score;
 	int lines;
 	int timer;
-} main_t;
+} 	main_t;
 
 # endif
