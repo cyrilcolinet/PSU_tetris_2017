@@ -25,9 +25,8 @@ void display_map(main_t *param)
 		mvprintw(1 + i, 33, "|");
 		mvprintw(1 + i, 33 + x * 2 + 2, "|");
 	}
-	tmp = tmp->next;
-	while (tmp->stop == 0) {
-		display_form(tmp);
-		tmp = tmp->next;
+	while (tmp->next->stop == 0) {
+		display_form(tmp->next);
+		tmp->next = tmp->next->next;
 	}
 }
