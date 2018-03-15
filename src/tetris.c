@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-int tetris(int ac, char **av, main_t *param)
+int tetris(main_t *param)
 {
 	if (config_tetriminos(param) != 0)
 		return (84);
@@ -29,7 +29,7 @@ int tetris_main(int ac, char **av)
 		return (84);
 	param->ac = ac;
 	param->av = av;
-	err = tetris(ac, av, param);
+	err = tetris(param);
 	free_all(param);
 	return (err);
 }
@@ -46,12 +46,12 @@ void display_help(main_t *param)
 	my_putstr(" (def: left arrow)\n -r --key-right={K}\tMove the tetrimino");
 	my_putstr(" right using the K key (def: right arrow)\n -t --key-turn=");
 	my_putstr("{K}\tTURN the tetrimino clockwise 90d using the K key (def");
-	my_putstr(": top arrow)\n -d --key-drop={K}\tDROP the tetrimino using ");
-	my_putstr("the K key (def: down arrow)\n -q --key-quit={K}\tQUIT the ");
-	my_putstr("game using the K key (def: 'q' key)\n -p --key-pause={K}\t");
+	my_putstr(": top arrow)\n -d --key-drop={K}\tDROP the tetrimino using");
+	my_putstr(" the K key (def: down arrow)\n -q --key-quit={K}\tQUIT the");
+	my_putstr(" game using the K key (def: 'q' key)\n -p --key-pause={K}\t");
 	my_putstr("PAUSE/RESTART the game using the K key (def: space bar)\n");
-	my_putstr(" --map-size={row,col}\tSet the numbers of rows and columns ");
-	my_putstr("of the map (def: 20,10)\n -w --without-next\tHide next ");
+	my_putstr(" --map-size={row,col}\tSet the numbers of rows and columns");
+	my_putstr(" of the map (def: 20,10)\n -w --without-next\tHide next ");
 	my_putstr("tetrimino (def: false)\n -D --debug\t\tDebug mode (def: ");
 	my_putstr("false)\n");
 	free_all(param);

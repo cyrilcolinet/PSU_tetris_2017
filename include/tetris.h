@@ -32,6 +32,7 @@ typedef struct dirent dir_t;
 typedef struct option opt_t;
 
 // tetris.c
+int 	tetris(main_t *param);
 int 	tetris_main(int ac, char **av);
 void	initialise_config(main_t *param);
 void 	display_help(main_t *param);
