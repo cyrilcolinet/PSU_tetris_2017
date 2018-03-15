@@ -33,8 +33,10 @@ typedef struct dirent dir_t;
 typedef struct option opt_t;
 
 // tetris.c
+int 	tetris(main_t *param);
 int 	tetris_main(int ac, char **av);
 void	initialise_config(main_t *param);
+void 	display_help(main_t *param);
 
 //error_management
 int 	error_size_color(char *str);
@@ -42,6 +44,8 @@ void	error_form(main_t *param);
 
 // utils/struct_utils.c
 void 	free_all(main_t *main);
+void 	configure_stats_struct(main_t *param);
+void 	configure_tetri_struct(main_t *param);
 main_t 	*configure(void);
 
 // utils/get_next_line.c
@@ -51,7 +55,7 @@ char 	*get_next_line(int fdesc);
 void	debug_mode(main_t *param);
 
 //player_action
-void deplacement(main_t *param, int n);
+void 	deplacement(main_t *param, int n);
 
 //map_management
 void 	display_game(main_t *param);
@@ -61,8 +65,8 @@ void	display_next_tetri(main_t *param);
 void	display_form(char **form, int pos_x, int pos_y);
 
 //create_current_next
-void create_current(main_t *param);
-void create_next(main_t *param);
+void 	create_current(main_t *param);
+void 	create_next(main_t *param);
 
 //create_tetris_title
 void 	create_tetris_title(void);
@@ -84,5 +88,15 @@ void 	fill_struct(main_t *param, char *path, char *file);
 void 	setup_tetrimino(dir_t *dirent, main_t *param);
 int 	get_files(main_t *param);
 int 	config_tetriminos(main_t *param);
+
+// managers/arguments/configure_args.c
+void 	execute_action_on_flag(int res, main_t *param);
+void 	arguments_manager(main_t *param);
+
+// managers/arguments/key_flag.c
+void 	manage_level_flag(main_t *param);
+char 	**map_change_error(int count);
+void 	change_map_size(main_t *param);
+void 	change_key(int res, main_t *param);
 
 # endif

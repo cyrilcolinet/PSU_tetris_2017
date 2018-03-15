@@ -11,11 +11,10 @@ void display_game(main_t *param)
 {
 	int n = 1;
 
-	param->pos_x = 35;
-	param->pos_y = 2;
-	
+	param->pos.x = 35;
+	param->pos.y = 2;
+
 	initscr();
-	keypad(stdscr, TRUE);
 	noecho();
 	curs_set(FALSE);
 	use_default_colors();
@@ -30,13 +29,13 @@ void display_game(main_t *param)
 	create_current(param);
 	create_next(param);
 
-	while (n != param->config.kq) {
+	while (n != param->config->kq) {
 		clear();
-		display_form(param->current, param->pos_x, param->pos_y);
+		display_form(param->current, param->pos.x, param->pos.y);
 		create_tetris_title();
 		display_map(param);
 		display_score(param);
-		if (!param->config.next)
+		if (!param->config->next)
 			display_next_tetri(param);
 		n = getch();
 		deplacement(param, n);

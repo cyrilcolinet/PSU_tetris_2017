@@ -28,16 +28,16 @@ void deplacement(main_t *param, int n)
 	char c;
 	int nb = get_len(param);
 
-	if (n == param->config.kr) {
-		c = mvwinch(stdscr, param->pos_y, param->pos_x + nb + 2) & A_CHARTEXT;
+	if (n == param->config->kr) {
+		c = mvwinch(stdscr, param->pos.y, param->pos.x + nb + 2) & A_CHARTEXT;
 		if (c != '|') {
-			param->pos_x += 2;
+			param->pos.x += 2;
 		}
 	}
-	if (n == param->config.kl) {
-		c = mvwinch(stdscr, param->pos_y, param->pos_x - 2) & A_CHARTEXT;
+	if (n == param->config->kl) {
+		c = mvwinch(stdscr, param->pos.y, param->pos.x - 2) & A_CHARTEXT;
 		if (c != '|') {
-			param->pos_x -= 2;
+			param->pos.x -= 2;
 		}
 	}
 }

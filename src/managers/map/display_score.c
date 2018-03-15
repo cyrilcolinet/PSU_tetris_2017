@@ -20,22 +20,22 @@ static int nb_length(int nb)
 
 static void display_value_score(main_t *param)
 {
-	int nb = nb_length(param->high_score);
+	int nb = nb_length(param->stats->high_score);
 
-	mvprintw( 10, 26 - nb, "%d", param->high_score);
-	nb = nb_length(param->score);
-	mvprintw( 11, 26 - nb, "%d", param->score);
-	nb = nb_length(param->lines);
-	mvprintw( 13, 26 - nb, "%d", param->lines);
-	nb = nb_length(param->level);
-	mvprintw( 14, 26 - nb, "%d", param->level);
-	nb = nb_length(param->timer);
-	if ( param->timer < 10) {
+	mvprintw( 10, 26 - nb, "%d", param->stats->high_score);
+	nb = nb_length(param->stats->score);
+	mvprintw( 11, 26 - nb, "%d", param->stats->score);
+	nb = nb_length(param->stats->lines);
+	mvprintw( 13, 26 - nb, "%d", param->stats->lines);
+	nb = nb_length(param->stats->level);
+	mvprintw( 14, 26 - nb, "%d", param->stats->level);
+	nb = nb_length(param->stats->timer);
+	if ( param->stats->timer < 10) {
 		nb++;
 		mvprintw( 16, 26 - nb, "0");
-		mvprintw( 16, 26 - nb + 1, "%d", param->timer);
+		mvprintw( 16, 26 - nb + 1, "%d", param->stats->timer);
 	} else
-		mvprintw( 16, 26 - nb, "%d", param->timer);
+		mvprintw( 16, 26 - nb, "%d", param->stats->timer);
 }
 
 void display_score(main_t *param)

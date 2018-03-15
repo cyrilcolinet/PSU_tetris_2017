@@ -23,7 +23,7 @@ static void display_next_tetri_size_1(int n, int b)
 
 void display_next_tetri(main_t *param)
 {
-	int n = 33 + param->config.size_w * 2 + 4;
+	int n = 33 + param->config->size_w * 2 + 4;
 	int len = 0;
 	int a = 0;
 	int b = 0;

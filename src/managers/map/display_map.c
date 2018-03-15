@@ -9,8 +9,8 @@
 
 void display_map(main_t *param)
 {
-	int x = param->config.size_w;
-	int y = param->config.size_h;
+	int x = param->config->size_w;
+	int y = param->config->size_h;
 
 	mvprintw(1, 33, "+");
 	mvprintw(1, 33 + x * 2 + 2, "+");
