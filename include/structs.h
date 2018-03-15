@@ -55,14 +55,14 @@ typedef struct stats_t {
 }	stats_t;
 
 typedef struct main_t {
-	int 			ac;
-	char 			**av;
+	int 		ac;
+	char 		**av;
 	tetriminos_t 	*tetri;
-	config_t 		*config;
-	char 			**current;
-	char 			**next;
-	pos_t 			pos;
-	stats_t 		*stats;
+	config_t 	*config;
+	char 		**current;
+	char 		**next;
+	pos_t 		pos;
+	stats_t 	*stats;
 } 	main_t;
 
 # endif

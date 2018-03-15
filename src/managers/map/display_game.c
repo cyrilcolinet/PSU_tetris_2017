@@ -27,15 +27,16 @@ void display_game(main_t *param)
 	init_pair(6, COLOR_CYAN, -1);
 
 	create_current(param);
-	create_next(param);
 
 	while (n != param->config->kq) {
 		clear();
+		my_freetab(param->next);
+		create_next(param);
 		display_form(param->current, param->pos.x, param->pos.y);
 		create_tetris_title();
 		display_map(param);
 		display_score(param);
-		if (!param->config->next)
+		if (param->config->next)
 			display_next_tetri(param);
 		n = getch();
 		deplacement(param, n);

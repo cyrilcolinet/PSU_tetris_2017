@@ -12,11 +12,12 @@ static tetriminos_t *random_tetri(main_t *param)
 	tetriminos_t *tmp;
 	int abc;
 	int x = 1;
+
 	while (x == 1) {
 		tmp = param->tetri;
 		tmp = tmp->next;
-		for (int i = 0; i < 10; i++)
-			abc = random() % 6;
+		srand(time(NULL));
+		abc = rand() % 6;
 		while (tmp->id != abc) {
 			tmp = tmp->next;
 		}

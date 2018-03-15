@@ -27,10 +27,6 @@ int tetris_main(int ac, char **av)
 	param = configure();
 	if (param == NULL)
 		return (84);
-	/* for (int j = 0; j < 5; j++) { */
-	/* 	int abc = rand() % 7; */
-	/* 	printf("%d\n", abc); */
-	/* } */
 	param->ac = ac;
 	param->av = av;
 	err = tetris(param);
