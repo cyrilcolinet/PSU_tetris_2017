@@ -53,5 +53,5 @@ void display_next_tetri(main_t *param)
 	} else
 		display_next_tetri_size_1(n, b);
 	mvprintw(1, n + 2, "next");
-	display_form(param->next, n + 2, 2);
+	display_form(param->next, n + 2, 2, 3);
 }

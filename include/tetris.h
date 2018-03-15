@@ -62,7 +62,7 @@ void 	display_game(main_t *param);
 void 	display_map(main_t *param);
 void 	display_score(main_t *param);
 void	display_next_tetri(main_t *param);
-void	display_form(char **form, int pos_x, int pos_y);
+void	display_form(char **form, int pos_x, int pos_y, int color);
 
 //create_current_next
 void 	create_current(main_t *param);

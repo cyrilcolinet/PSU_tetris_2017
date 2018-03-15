@@ -7,10 +7,11 @@
 
 #include "tetris.h"
 
-void display_form(char **form, int pos_x, int pos_y)
+void display_form(char **form, int pos_x, int pos_y, int color)
 {
 	int nb = 0;
 
+	attron(COLOR_PAIR(color));
 	for (int i = 0; form[i] != NULL; i++) {
 		nb = 0;
 		for (int j = 0; form[i][j] != '\0'; j++) {
@@ -22,4 +23,5 @@ void display_form(char **form, int pos_x, int pos_y)
 			}
 		}
 	}
+	attroff(COLOR_PAIR(color));
 }
