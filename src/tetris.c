@@ -9,7 +9,7 @@
 
 static void param_info(main_t *param)
 {
-	param->level = param->config.level;   
+	param->level = param->config->level;
 	param->score = 0;
 	param->high_score = 0;
 	param->lines = 0;
@@ -25,8 +25,7 @@ int tetris(int ac, char **av, main_t *param)
 	error_form(param);
 	for (int i = 0; i < ac; i++) {
 		param->debug = 0;
-		if (av[i][0] == '-' && av[i][1] == 'D'
-		&& av[i][2] == '\0') {
+		if (av[i][0] == '-' && av[i][1] == 'D' && av[i][2] == '\0') {
 			debug_mode(param);
 			break;
 		}

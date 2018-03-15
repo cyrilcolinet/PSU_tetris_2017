@@ -10,19 +10,19 @@
 static void affichage_key(main_t *param)
 {
 	my_putstr("Key Left : ");
-	my_putchar(param->config.kl);
+	my_putchar(param->config->kl);
 	my_putstr("\nKey Right : ");
-	my_putchar(param->config.kr);
+	my_putchar(param->config->kr);
 	my_putstr("\nKey Turn : ");
-	my_putchar(param->config.kt);
+	my_putchar(param->config->kt);
 	my_putstr("\nKey Drop : ");
-	my_putchar(param->config.kd);
+	my_putchar(param->config->kd);
 	my_putstr("\nKey Quit : ");
-	my_putchar(param->config.kq);
+	my_putchar(param->config->kq);
 	my_putstr("\nKey Pause : ");
-	my_putchar(param->config.kp);
+	my_putchar(param->config->kp);
 	my_putstr("\nNext : ");
-	if (param->config.next)
+	if (param->config->next)
 		my_putstr("Yes");
 	else
 		my_putstr("No");
@@ -66,13 +66,13 @@ void debug_mode(main_t *param)
 	my_putstr("*** DEBUG MODE ***\n");
 	affichage_key(param);
 	my_putstr("\nLevel : ");
-	my_put_nbr(param->config.level);
+	my_put_nbr(param->config->level);
 	my_putstr("\nSize : ");
-	my_put_nbr(param->config.size_w);
+	my_put_nbr(param->config->size_w);
 	my_putstr("*");
-	my_put_nbr(param->config.size_h);
+	my_put_nbr(param->config->size_h);
 	my_putstr("\nTetriminos : ");
-	my_put_nbr(param->config.nb_tetri);
+	my_put_nbr(param->config->nb_tetri);
 	my_putchar('\n');
 	affichage_tetrimino(param);
 	my_putstr("Press any key to start Tetris\n");

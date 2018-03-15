@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-opt_t configure_args(void)
+opt_t configure_args(config_t *config)
 {
 	opt_t options[] = {
 			{ "level", required_argument, NULL, 1 },
@@ -29,7 +29,7 @@ opt_t configure_args(void)
 
 void arguments_manager(main_t *param)
 {
-	opt_t opt[] = configure_args();
+	opt_t opt[] = configure_args(param->config);
 	int res = 0;
 	char *shortopt = "+L:l:r:t:d:q:p::wDh";
 

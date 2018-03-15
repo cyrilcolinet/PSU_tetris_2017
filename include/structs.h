@@ -45,7 +45,7 @@ typedef struct main {
 	int ac;
 	char **av;
 	tetriminos_t *tetri;
-	config_t config;
+	config_t *config;
 	char **current;
 	char **next;
 	int pos_x;

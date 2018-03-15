@@ -19,12 +19,10 @@ void free_all(main_t *param)
 		free(tmp->path);
 		free(tmp);
 	}
-	for (int i = 0; param->current[i] != NULL; i++)
-		free(param->current[i]);
-	free(param->current);
-	for (int i = 0; param->next[i] != NULL; i++)
-		free(param->next[i]);
-	free(param->next);
+
+	my_freetab(param->current);
+	my_freetab(param->next);
+	free(param->config);
 	free(param);
 }
 
@@ -36,7 +34,8 @@ main_t *configure(void)
 		return (NULL);
 
 	param->tetri = malloc(sizeof(tetriminos_t));
-	if (param->tetri == NULL)
+	param->config = malloc(sizeof(config_t));
+	if (!param->tetri || !param->config)
 		return (NULL);
 
 	param->tetri->id = -1;
