@@ -19,22 +19,10 @@ void free_all(main_t *param)
 		free(tmp->path);
 		free(tmp);
 	}
-<<<<<<< HEAD
-	if (param->next != NULL && param->current != NULL) {
-		for (int i = 0; param->current[i] != NULL; i++)
-			free(param->current[i]);
-		free(param->current);
-		for (int i = 0; param->next[i] != NULL; i++)
-			free(param->next[i]);
-		free(param->next);
-	}
-=======
-
 	my_freetab(param->current);
 	my_freetab(param->next);
 	free(param->stats);
 	free(param->config);
->>>>>>> b99759af8c4b17bcd83df55d05223d6e47ecf106
 	free(param);
 }
 
