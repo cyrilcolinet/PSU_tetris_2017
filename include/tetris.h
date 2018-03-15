@@ -34,6 +34,7 @@ typedef struct option opt_t;
 // tetris.c
 int 	tetris_main(int ac, char **av);
 void	initialise_config(main_t *param);
+void 	display_help(main_t *param);
 
 //error_management
 int 	error_size_color(char *str);
@@ -89,5 +90,8 @@ int 	config_tetriminos(main_t *param);
 // managers/arguments/configure_args.c
 void 	execute_action_on_flag(int res, main_t *param);
 void 	arguments_manager(main_t *param);
+
+// managers/arguments/key_flag.c
+void 	manage_level_flag(main_t *param);
 
 # endif

@@ -38,7 +38,7 @@ void configure_tetri_struct(main_t *param)
 
 void configure_stats_struct(main_t *param)
 {
-	param->stats->level = 0;
+	param->stats->level = 1;
 	param->stats->score = 0;
 	param->stats->high_score = 0;
 	param->stats->lines = 0;
@@ -57,7 +57,7 @@ main_t *configure(void)
 	if (!param->tetri || !param->config || !param->stats)
 		return (NULL);
 	param->config->debug = 0;
-	param->config->next = 0;
+	param->config->next = 1;
 	configure_tetri_struct(param);
 	configure_stats_struct(param);
 	param->current = NULL;

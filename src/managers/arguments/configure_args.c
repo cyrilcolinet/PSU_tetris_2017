@@ -13,6 +13,12 @@ void execute_action_on_flag(int res, main_t *param)
 		case 'D': param->config->debug = 1;
 		break;
 
+		case 'L': manage_level_flag(param);
+		break;
+
+		case 'h': display_help(param);
+		break;
+
 		default: break;
 	}
 }
