@@ -93,5 +93,6 @@ void 	arguments_manager(main_t *param);
 
 // managers/arguments/key_flag.c
 void 	manage_level_flag(main_t *param);
+void 	change_map_size(main_t *param);
 
 # endif

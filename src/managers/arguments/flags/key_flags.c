@@ -20,3 +20,52 @@ void manage_level_flag(main_t *param)
 	level = my_atoi(optarg);
 	param->config->level = level;
 }
+
+char **map_change_error(int count)
+{
+	char **arr = NULL;
+
+	if (count != 1) {
+		write(2, optarg, my_strlen(optarg));
+		write(2, " : invalid map size.\n", 21);
+		my_freetab(arr);
+		return (NULL);
+	}
+	arr = my_strtok(optarg, ',');
+	if (arr[1] == NULL) {
+		write(2, optarg, my_strlen(optarg));
+		write(2, " : invalid map size.\n", 21);
+		return (NULL);
+	}
+
+	return (arr);
+}
+
+void change_map_size(main_t *param)
+{
+	char **arr = NULL;
+	int count = 0;
+	int i = 0;
+
+	for (i = 0; optarg[i]; i++)
+		if (optarg[i] == ',')
+			count++;
+	arr = map_change_error(count);
+	if (!arr)
+		return;
+	for (i = 0; arr[i]; i++)
+		if (!my_str_isnum(arr[i])) {
+			write(2, optarg, my_strlen(optarg));
+			write(2, " : invalid map size.\n", 21);
+			my_freetab(arr);
+			return;
+		}
+	param->config->size_h = my_atoi(arr[0]);
+	param->config->size_w = my_atoi(arr[1]);
+	my_freetab(arr);
+}
+
+void change_key(int res, main_t *param)
+{
+
+}

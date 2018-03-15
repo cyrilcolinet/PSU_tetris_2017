@@ -12,14 +12,15 @@ void execute_action_on_flag(int res, main_t *param)
 	switch (res) {
 		case 'D': param->config->debug = 1;
 		break;
-
 		case 'L': manage_level_flag(param);
 		break;
-
 		case 'h': display_help(param);
 		break;
+		case 8: change_map_size(param);
+		break;
 
-		default: break;
+		default: change_key(res, param);
+		break;
 	}
 }
 

@@ -16,6 +16,7 @@ void initialise_config(main_t *param)
 	param->config->kq = 'q';
 	param->config->kp = 'p';
 	param->config->next = 1;
+	param->config->debug = 0;
 	param->config->level = 1;
 	param->config->size_w = 10;
 	param->config->size_h = 20;
