@@ -7,12 +7,12 @@
 
 #include "tetris.h"
 
-void add_new_form_map(main_t *param, map_t *tmp)
+map_t *add_new_form_map(map_t *tmp)
 {
-	if (tmp->pos_x == 45) {
-		tmp = tmp->next;
-		tmp->pos_x = 35;
-		tmp->pos_y = 35;
-		tmp->next = create_random_tetri(param);
-	}
+	tmp->stop = 0;
+	tmp = tmp->next;
+	tmp->stop = 1;
+	tmp->pos_x = 35;
+	tmp->pos_y = 2;
+	return (tmp);
 }

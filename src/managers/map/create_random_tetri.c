@@ -32,22 +32,23 @@ static char **copie_form(char **str, char **tmp)
 map_t *create_random_tetri(main_t *param)
 {
 	tetriminos_t *tmp;
-	map_t *map = malloc(sizeof(map_t));
 	int abc;
 	int x = 1;
+	map_t *new = malloc(sizeof(map_t));
 
 	while (x == 1) {
 		tmp = param->tetri;
 		tmp = tmp->next;
 		srand(time(NULL));
-		abc = rand() % 6;
+		for (int i = 0; i < 10; i++)
+			abc = rand() % param->config->nb_tetri;
 		while (tmp->id != abc) {
 			tmp = tmp->next;
 		}
 		if (tmp->invalid == 0)
 			x = 2;
 	}
-	map->color = tmp->color;
-	map->form = copie_form(map->form, tmp->form);
-	return (map);
+	new->color = tmp->color;
+	new->form = copie_form(new->form, tmp->form);
+	return (new);
 }

@@ -10,6 +10,7 @@
 void free_all(main_t *param)
 {
 	tetriminos_t *tmp = NULL;
+	map_t *map = NULL;
 
 	while (param->tetri != NULL) {
 		tmp = param->tetri;
@@ -18,6 +19,12 @@ void free_all(main_t *param)
 		free(tmp->name);
 		free(tmp->path);
 		free(tmp);
+	}
+	while (param->map != NULL) {
+		map = param->map;
+		param->map = param->map->next;
+		my_freetab(map->form);
+		free(map);
 	}
 	free(param->stats);
 	free(param->config);
@@ -31,6 +38,7 @@ void configure_tetri_struct(main_t *param)
 	param->tetri->form = NULL;
 	param->tetri->path = NULL;
 	param->tetri->next = NULL;
+	param->map->form = NULL;
 }
 
 void configure_stats_struct(main_t *param)
@@ -49,9 +57,11 @@ main_t *configure(void)
 	if (param == NULL)
 		return (NULL);
 	param->tetri = malloc(sizeof(tetriminos_t));
+	param->map = malloc(sizeof(map_t));
 	param->config = malloc(sizeof(config_t));
 	param->stats = malloc(sizeof(stats_t));
-	if (!param->tetri || !param->config || !param->stats)
+	if (!param->tetri || !param->config
+	|| !param->stats ||!param->map)
 		return (NULL);
 	initialise_config(param);
 	configure_tetri_struct(param);

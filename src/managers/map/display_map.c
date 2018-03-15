@@ -9,6 +9,7 @@
 
 void display_map(main_t *param)
 {
+	map_t *tmp = param->map;
 	int x = param->config->size_w;
 	int y = param->config->size_h;
 
@@ -23,5 +24,10 @@ void display_map(main_t *param)
 	for (int i = 1; i < y + 1; i++) {
 		mvprintw(1 + i, 33, "|");
 		mvprintw(1 + i, 33 + x * 2 + 2, "|");
+	}
+	tmp = tmp->next;
+	while (tmp->stop == 0) {
+		display_form(tmp);
+		tmp = tmp->next;
 	}
 }

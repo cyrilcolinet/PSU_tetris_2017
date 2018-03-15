@@ -24,11 +24,13 @@ void display_game(main_t *param)
 	int n = 1;
 	map_t *tmp = param->map;
 
-	tmp = malloc(sizeof(map_t));
+	tmp = tmp->next;
 	tmp = create_random_tetri(param);
-        tmp->next = create_random_tetri(param);
-        tmp->pos_x = 35;
-        tmp->pos_y = 2;
+	tmp->next = create_random_tetri(param);
+	tmp->stop = 1;
+	tmp->next->stop = 2;
+	tmp->pos_x = 35;
+	tmp->pos_y = 2;
 
 	initscr();
 	noecho();
@@ -37,21 +39,19 @@ void display_game(main_t *param)
 
 	while (n != param->config->kq) {
 		clear();
-		display_form(tmp);
 		create_tetris_title();
 		display_map(param);
 		display_score(param);
+		display_form(tmp);
 		if (param->config->next)
 			display_next_tetri(param, tmp->next);
 		n = getch();
 		deplacement(param, tmp, n);
-		if (tmp->pos_x == 45) {
-			tmp = tmp->next;
-			tmp->pos_x = 35;
-			tmp->pos_y = 2;
+		if (n == 'c') {
+			tmp = add_new_form_map(tmp);
 			tmp->next = create_random_tetri(param);
+			tmp->next->stop = 2;
 		}
-//		add_new_form_map(param, tmp);
 		refresh();
 	}
 	endwin();

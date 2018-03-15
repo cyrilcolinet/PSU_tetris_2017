@@ -58,7 +58,7 @@ void	debug_mode(main_t *param);
 void 	deplacement(main_t *param, map_t *tmp, int n);
 
 //map_management
-void	add_new_form_map(main_t *param, map_t *tmp);
+map_t	*add_new_form_map(map_t *tmp);
 void 	display_game(main_t *param);
 void 	display_map(main_t *param);
 void 	display_score(main_t *param);

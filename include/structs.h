@@ -19,6 +19,7 @@ typedef struct map_t {
 	char **form;
 	int pos_x;
 	int pos_y;
+	int stop;
 	struct map_t *next;
 }	map_t;
 
