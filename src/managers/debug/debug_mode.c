@@ -63,18 +63,19 @@ static void affichage_tetrimino(main_t *param)
 
 void debug_mode(main_t *param)
 {
-	my_putstr("*** DEBUG MODE ***\n");
-	affichage_key(param);
-	my_putstr("\nLevel : ");
-	my_put_nbr(param->config->level);
-	my_putstr("\nSize : ");
-	my_put_nbr(param->config->size_w);
-	my_putstr("*");
-	my_put_nbr(param->config->size_h);
-	my_putstr("\nTetriminos : ");
-	my_put_nbr(param->config->nb_tetri);
-	my_putchar('\n');
-	affichage_tetrimino(param);
-	my_putstr("Press any key to start Tetris\n");
-	param->debug = 1;
+	if (param->config->debug) {
+		my_putstr("*** DEBUG MODE ***\n");
+		affichage_key(param);
+		my_putstr("\nLevel : ");
+		my_put_nbr(param->config->level);
+		my_putstr("\nSize : ");
+		my_put_nbr(param->config->size_w);
+		my_putstr("*");
+		my_put_nbr(param->config->size_h);
+		my_putstr("\nTetriminos : ");
+		my_put_nbr(param->config->nb_tetri);
+		my_putchar('\n');
+		affichage_tetrimino(param);
+		my_putstr("Press any key to start Tetris\n");
+	}
 }

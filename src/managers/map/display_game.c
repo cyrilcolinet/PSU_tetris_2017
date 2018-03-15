@@ -11,8 +11,8 @@ void display_game(main_t *param)
 {
 	int n = 1;
 
-	param->pos_x = 35;
-	param->pos_y = 2;
+	param->pos.x = 35;
+	param->pos.y = 2;
 
 	initscr();
 	keypad(stdscr, TRUE);
@@ -32,7 +32,7 @@ void display_game(main_t *param)
 
 	while (n != param->config->kq) {
 		clear();
-		display_form(param->current, param->pos_x, param->pos_y);
+		display_form(param->current, param->pos.x, param->pos.y);
 		create_tetris_title();
 		display_map(param);
 		display_score(param);

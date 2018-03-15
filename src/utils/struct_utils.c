@@ -22,8 +22,27 @@ void free_all(main_t *param)
 
 	my_freetab(param->current);
 	my_freetab(param->next);
+	free(param->stats);
 	free(param->config);
 	free(param);
+}
+
+void configure_tetri_struct(main_t *param)
+{
+	param->tetri->id = -1;
+	param->tetri->name = NULL;
+	param->tetri->form = NULL;
+	param->tetri->path = NULL;
+	param->tetri->next = NULL;
+}
+
+void configure_stats_struct(main_t *param)
+{
+	param->stats->level = 0;
+	param->stats->score = 0;
+	param->stats->high_score = 0;
+	param->stats->lines = 0;
+	param->stats->timer = 0;
 }
 
 main_t *configure(void)
@@ -32,17 +51,15 @@ main_t *configure(void)
 
 	if (param == NULL)
 		return (NULL);
-
 	param->tetri = malloc(sizeof(tetriminos_t));
 	param->config = malloc(sizeof(config_t));
-	if (!param->tetri || !param->config)
+	param->stats = malloc(sizeof(stats_t));
+	if (!param->tetri || !param->config || !param->stats)
 		return (NULL);
-
-	param->tetri->id = -1;
-	param->tetri->name = NULL;
-	param->tetri->form = NULL;
-	param->tetri->path = NULL;
-	param->tetri->next = NULL;
+	param->config->debug = 0;
+	param->config->next = 0;
+	configure_tetri_struct(param);
+	configure_stats_struct(param);
 	param->current = NULL;
 	param->next = NULL;
 	return (param);
