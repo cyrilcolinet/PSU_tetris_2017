@@ -23,6 +23,7 @@
 # include <string.h>
 # include <dirent.h>
 # include <getopt.h>
+# include <time.h>
 
 # include "my.h"
 # include "structs.h"

@@ -46,6 +46,10 @@ int tetris_main(int ac, char **av)
 	if (param == NULL)
 		return (84);
 	err = tetris(ac, av, param);
+	/* for (int j = 0; j < 5; j++) { */
+	/* 	int abc = rand() % 7; */
+	/* 	printf("%d\n", abc); */
+	/* } */
 	free_all(param);
 	return (err);
 }
