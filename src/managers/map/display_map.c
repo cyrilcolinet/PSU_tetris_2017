@@ -24,6 +24,4 @@ void display_map(main_t *param)
 		mvprintw(1 + i, 33, "|");
 		mvprintw(1 + i, 33 + x * 2 + 2, "|");
 	}
-	/* char c = (char)mvwinch(stdscr, 3, 33) & A_CHARTEXT; */
-	/* mvprintw(30, 3, &c); */
 }

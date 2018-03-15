@@ -18,11 +18,10 @@ TEST_DIR	= 	tests/
 SRC_FILES	= 	main.c		\
 			tetris.c	\
 			managers/arguments/initialise_config.c	\
-			managers/tetriminos/error/error_size_color.c	\
-			managers/tetriminos/error/error_form.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\
 			managers/map/display_score.c	\
+			managers/map/display_form.c	\
 			managers/map/display_next_tetri.c	\
 			managers/map/create_tetris_title.c	\
 			managers/map/tetris_letter/letter_1.c	\
@@ -33,8 +32,10 @@ SRC_FILES	= 	main.c		\
 			managers/map/tetris_letter/letter_6.c	\
 			managers/tetriminos/load_tetriminos.c 	\
 			managers/tetriminos/parse_file.c 	\
+			managers/tetriminos/error/error_size_color.c	\
+			managers/tetriminos/error/error_form.c	\
 			managers/debug/debug_mode.c	\
-			managers/arguments/configure_args.c  	\
+			managers/player_action/deplacement.c	\
 			utils/get_next_line.c 	\
 			utils/struct_utils.c
 

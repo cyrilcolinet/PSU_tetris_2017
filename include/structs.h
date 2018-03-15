@@ -46,7 +46,6 @@ typedef struct main {
 	char **av;
 	tetriminos_t *tetri;
 	config_t config;
-	char **next_form;
 	char **current;
 	int pos_x;
 	int pos_y;

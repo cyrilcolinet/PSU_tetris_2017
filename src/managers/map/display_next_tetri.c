@@ -43,6 +43,5 @@ void display_next_tetri(main_t *param, tetriminos_t *tmp)
 	} else
 		display_next_tetri_size_1(n, b);
 	mvprintw(1, n + 2, "next");
-	for (int i = 0; param->current[i] != NULL; i++)
-		mvprintw(2 + i, n + 2, param->current[i]);
+	display_form(tmp->form, n + 2, 2);
 }
