@@ -56,8 +56,7 @@ main_t *configure(void)
 	param->stats = malloc(sizeof(stats_t));
 	if (!param->tetri || !param->config || !param->stats)
 		return (NULL);
-	param->config->debug = 0;
-	param->config->next = 1;
+	initialise_config(param);
 	configure_tetri_struct(param);
 	configure_stats_struct(param);
 	param->current = NULL;

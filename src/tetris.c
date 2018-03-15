@@ -9,7 +9,6 @@
 
 int tetris(int ac, char **av, main_t *param)
 {
-	initialise_config(param);
 	if (config_tetriminos(param) != 0)
 		return (84);
 	arguments_manager(param);
@@ -54,4 +53,6 @@ void display_help(main_t *param)
 	my_putstr("of the map (def: 20,10)\n -w --without-next\tHide next ");
 	my_putstr("tetrimino (def: false)\n -D --debug\t\tDebug mode (def: ");
 	my_putstr("false)\n");
+	free_all(param);
+	exit(0);
 }

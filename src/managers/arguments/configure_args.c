@@ -38,8 +38,7 @@ void arguments_manager(main_t *param)
 		{ "key-pause", required_argument, NULL, 'p' },
 		{ "debug", no_argument, &param->config->debug, 1 },
 		{ "help", no_argument, NULL, 'h' },
-		{ "map-size", required_argument, NULL, 8 },
-		{ 0, 0, 0, 0 }
+		{ "map-size", required_argument, NULL, 8 }
 	};
 
 	while (res >= 0) {
