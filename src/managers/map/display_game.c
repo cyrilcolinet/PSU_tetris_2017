@@ -42,11 +42,12 @@ void display_game(main_t *param)
 		create_tetris_title();
 		display_map(param);
 		display_score(param);
-		display_form(tmp);
+		display_form(tmp->next);
 		if (param->config->next)
 			display_next_tetri(param, tmp->next->next);
 		n = getch();
-		deplacement(param, tmp, n);
+		deplacement(param, tmp->next, n);
+//		rotation(param, n);
 		if (n == 'c') {
 			tmp->next = add_new_form_map(tmp->next);
 			tmp->next->next = create_random_tetri(param);

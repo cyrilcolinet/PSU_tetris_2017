@@ -40,6 +40,7 @@ SRC_FILES	= 	main.c		\
 			managers/tetriminos/error/error_form.c	\
 			managers/debug/debug_mode.c	\
 			managers/player_action/deplacement.c	\
+			managers/player_action/rotation.c	\
 			utils/get_next_line.c 	\
 			utils/struct_utils.c
 
