@@ -45,7 +45,13 @@ void display_game(main_t *param)
 			display_next_tetri(param, tmp->next);
 		n = getch();
 		deplacement(param, tmp, n);
-		add_new_form_map(param, tmp);
+		if (tmp->pos_x == 45) {
+			tmp = tmp->next;
+			tmp->pos_x = 35;
+			tmp->pos_y = 2;
+			tmp->next = create_random_tetri(param);
+		}
+//		add_new_form_map(param, tmp);
 		refresh();
 	}
 	endwin();
