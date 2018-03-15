@@ -9,7 +9,6 @@
 # define STRUCTS_TETRIS_H
 
 struct 	tetriminos_t;
-struct 	args_t;
 struct 	config_t;
 struct 	pos_t;
 struct 	stats_t;
@@ -26,14 +25,6 @@ typedef struct tetriminos_t {
 	char *path;
 	struct tetriminos_t *next;
 } 	tetriminos_t;
-
-typedef struct args_t {
-	char 			*name;
-	int 			has_arg;
-	int 			*flag;
-	int 			val;
-	struct args_t 	*next;
-} 	args_t;
 
 typedef struct config_t {
 	char 	kl;
