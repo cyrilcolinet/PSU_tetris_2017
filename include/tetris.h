@@ -56,8 +56,12 @@ void deplacement(main_t *param, int n);
 void 	display_game(main_t *param);
 void 	display_map(main_t *param);
 void 	display_score(main_t *param);
-void	display_next_tetri(main_t *param, tetriminos_t *tmp);
+void	display_next_tetri(main_t *param);
 void	display_form(char **form, int pos_x, int pos_y);
+
+//create_current_next
+void create_current(main_t *param);
+void create_next(main_t *param);
 
 //create_tetris_title
 void 	create_tetris_title(void);

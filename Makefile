@@ -24,6 +24,7 @@ SRC_FILES	= 	main.c		\
 			managers/map/display_form.c	\
 			managers/map/display_next_tetri.c	\
 			managers/map/create_tetris_title.c	\
+			managers/map/create_current_next.c	\
 			managers/map/tetris_letter/letter_1.c	\
 			managers/map/tetris_letter/letter_2.c	\
 			managers/map/tetris_letter/letter_3.c	\

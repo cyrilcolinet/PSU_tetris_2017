@@ -19,6 +19,12 @@ void free_all(main_t *param)
 		free(tmp->path);
 		free(tmp);
 	}
+	for (int i = 0; param->current[i] != NULL; i++)
+		free(param->current[i]);
+	free(param->current);
+	for (int i = 0; param->next[i] != NULL; i++)
+		free(param->next[i]);
+	free(param->next);
 	free(param);
 }
 
