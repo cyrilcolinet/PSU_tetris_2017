@@ -14,7 +14,7 @@ int tetris(int ac, char **av, main_t *param)
 	arguments_manager(param);
 	error_form(param);
 	debug_mode(param);
-	//display_game(param);
+	display_game(param);
 	return (0);
 }
 

@@ -67,5 +67,24 @@ void change_map_size(main_t *param)
 
 void change_key(int res, main_t *param)
 {
-
+	if (my_strlen(optarg) != 1) {
+		write(2, optarg, my_strlen(optarg));
+		write(2, "Invalid key character.\n", 23);
+	} else {
+		switch (res) {
+			case 'l': param->config->kl = optarg[0];
+			break;
+			case 'r': param->config->kr = optarg[0];
+			break;
+			case 't': param->config->kt = optarg[0];
+			break;
+			case 'd': param->config->kd = optarg[0];
+			break;
+			case 'q': param->config->kq = optarg[0];
+			break;
+			case 'p': param->config->kp = optarg[0];
+			default:
+			break;
+		}
+	}
 }
