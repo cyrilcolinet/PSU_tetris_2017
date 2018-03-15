@@ -19,7 +19,7 @@ void execute_action_on_flag(int res, main_t *param)
 		case 8: change_map_size(param);
 		break;
 		default:
-			if (res >= 0 && res <= 127)
+			if (res >= 0 && res <= 127 && optarg != NULL)
 				change_key(res, param);
 		break;
 	}

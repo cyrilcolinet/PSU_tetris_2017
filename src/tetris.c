@@ -11,6 +11,7 @@ int tetris(int ac, char **av, main_t *param)
 {
 	if (config_tetriminos(param) != 0)
 		return (84);
+	keypad(stdscr, TRUE);
 	arguments_manager(param);
 	error_form(param);
 	debug_mode(param);

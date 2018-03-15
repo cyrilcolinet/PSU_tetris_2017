@@ -63,6 +63,8 @@ static void affichage_tetrimino(main_t *param)
 
 void debug_mode(main_t *param)
 {
+	char *line = NULL;
+
 	if (param->config->debug) {
 		my_putstr("*** DEBUG MODE ***\n");
 		affichage_key(param);
@@ -77,5 +79,7 @@ void debug_mode(main_t *param)
 		my_putchar('\n');
 		affichage_tetrimino(param);
 		my_putstr("Press any key to start Tetris\n");
+		line = get_next_line(0);
+		free(line);
 	}
 }

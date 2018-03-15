@@ -15,7 +15,6 @@ void display_game(main_t *param)
 	param->pos.y = 2;
 
 	initscr();
-	keypad(stdscr, TRUE);
 	noecho();
 	curs_set(FALSE);
 	use_default_colors();
