@@ -32,7 +32,7 @@ typedef struct tetriminos_t {
 	char *name;
 	char **form;
 	char *path;
-	struct tetriminos_t *next;	
+	struct tetriminos_t *next;
 } 	tetriminos_t;
 
 typedef struct config_t {
