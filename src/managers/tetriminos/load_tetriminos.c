@@ -17,12 +17,9 @@ void fill_struct(main_t *param, char *path, char *file)
 		tmp = tmp->next;
 		id++;
 	}
-
 	tmp->next = malloc(sizeof(tetriminos_t));
-
 	if (tmp->next == NULL)
 		return;
-
 	err = set_first_values(tmp->next, path);
 	tmp->next->id = id;
 	tmp->next->name = parse_filename(file);

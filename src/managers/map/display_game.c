@@ -7,16 +7,8 @@
 
 #include "tetris.h"
 
-void display_game(main_t *param)
+void ini_color(void)
 {
-	int n = 1;
-
-	param->pos.x = 35;
-	param->pos.y = 2;
-
-	initscr();
-	noecho();
-	curs_set(FALSE);
 	use_default_colors();
 	start_color();
 	init_pair(1, COLOR_RED, -1);
@@ -25,21 +17,35 @@ void display_game(main_t *param)
 	init_pair(4, COLOR_BLUE, -1);
 	init_pair(5, COLOR_MAGENTA, -1);
 	init_pair(6, COLOR_CYAN, -1);
+}
 
-	create_current(param);
-	create_next(param);
+void display_game(main_t *param)
+{
+	int n = 1;
+	map_t *tmp = param->map;
+
+	tmp = malloc(sizeof(map_t));
+	tmp = create_random_tetri(param);
+        tmp->next = create_random_tetri(param);
+        tmp->pos_x = 35;
+        tmp->pos_y = 2;
+
+	initscr();
+	noecho();
+	curs_set(FALSE);
+	ini_color();
+
 	while (n != param->config->kq) {
 		clear();
-		/* my_freetab(param->next); */
-		/* create_next(param); */
-		display_form(param->current, param->pos.x, param->pos.y, 5);
+		display_form(tmp);
 		create_tetris_title();
 		display_map(param);
 		display_score(param);
 		if (param->config->next)
-			display_next_tetri(param);
+			display_next_tetri(param, tmp->next);
 		n = getch();
-		deplacement(param, n);
+		deplacement(param, tmp, n);
+		add_new_form_map(param, tmp);
 		refresh();
 	}
 	endwin();

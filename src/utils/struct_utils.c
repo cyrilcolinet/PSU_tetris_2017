@@ -19,8 +19,6 @@ void free_all(main_t *param)
 		free(tmp->path);
 		free(tmp);
 	}
-	my_freetab(param->current);
-	my_freetab(param->next);
 	free(param->stats);
 	free(param->config);
 	free(param);
@@ -58,7 +56,5 @@ main_t *configure(void)
 	initialise_config(param);
 	configure_tetri_struct(param);
 	configure_stats_struct(param);
-	param->current = NULL;
-	param->next = NULL;
 	return (param);
 }

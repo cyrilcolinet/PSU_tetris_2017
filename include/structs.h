@@ -14,6 +14,14 @@ struct 	pos_t;
 struct 	stats_t;
 struct 	main_t;
 
+typedef struct map_t {
+	int color;
+	char **form;
+	int pos_x;
+	int pos_y;
+	struct map_t *next;
+}	map_t;
+
 typedef struct tetriminos_t {
 	int id;
 	int height;
@@ -23,7 +31,7 @@ typedef struct tetriminos_t {
 	char *name;
 	char **form;
 	char *path;
-	struct tetriminos_t *next;
+	struct tetriminos_t *next;	
 } 	tetriminos_t;
 
 typedef struct config_t {
@@ -41,11 +49,6 @@ typedef struct config_t {
 	int 	nb_tetri;
 } 	config_t;
 
-typedef struct pos_t {
-	int 	x;
-	int 	y;
-} 	pos_t;
-
 typedef struct stats_t {
 	int 	level;
 	int 	high_score;
@@ -58,10 +61,8 @@ typedef struct main_t {
 	int 		ac;
 	char 		**av;
 	tetriminos_t 	*tetri;
+	map_t		*map;
 	config_t 	*config;
-	char 		**current;
-	char 		**next;
-	pos_t 		pos;
 	stats_t 	*stats;
 } 	main_t;
 

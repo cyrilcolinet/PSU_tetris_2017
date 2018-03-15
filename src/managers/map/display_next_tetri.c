@@ -21,17 +21,17 @@ static void display_next_tetri_size_1(int n, int b)
 	}
 }
 
-void display_next_tetri(main_t *param)
+void display_next_tetri(main_t *param, map_t *next)
 {
 	int n = 33 + param->config->size_w * 2 + 4;
 	int len = 0;
 	int a = 0;
 	int b = 0;
 
-	for (int i = 0; param->next[i] != NULL; i++) {
+	for (int i = 0; next->form[i] != NULL; i++) {
 		b++;
 		len = 0;
-		for (int j = 0; param->next[i][j] != '\0'; j++){
+		for (int j = 0; next->form[i][j] != '\0'; j++){
 			len++;
 		}
 		if (a < len)
@@ -53,5 +53,7 @@ void display_next_tetri(main_t *param)
 	} else
 		display_next_tetri_size_1(n, b);
 	mvprintw(1, n + 2, "next");
-	display_form(param->next, n + 2, 2, 3);
+	next->pos_x = n + 2;
+	next->pos_y = 2;
+	display_form(next);
 }

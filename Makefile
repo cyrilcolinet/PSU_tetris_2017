@@ -20,13 +20,14 @@ SRC_FILES	= 	main.c		\
 			managers/arguments/initialise_config.c	\
 			managers/arguments/configure_args.c 	\
 			managers/arguments/flags/key_flags.c 	\
+			managers/map/new_form.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\
 			managers/map/display_score.c	\
 			managers/map/display_form.c	\
 			managers/map/display_next_tetri.c	\
 			managers/map/create_tetris_title.c	\
-			managers/map/create_current_next.c	\
+			managers/map/create_random_tetri.c	\
 			managers/map/tetris_letter/letter_1.c	\
 			managers/map/tetris_letter/letter_2.c	\
 			managers/map/tetris_letter/letter_3.c	\

@@ -55,18 +55,18 @@ char 	*get_next_line(int fdesc);
 void	debug_mode(main_t *param);
 
 //player_action
-void 	deplacement(main_t *param, int n);
+void 	deplacement(main_t *param, map_t *tmp, int n);
 
 //map_management
+void	add_new_form_map(main_t *param, map_t *tmp);
 void 	display_game(main_t *param);
 void 	display_map(main_t *param);
 void 	display_score(main_t *param);
-void	display_next_tetri(main_t *param);
-void	display_form(char **form, int pos_x, int pos_y, int color);
+void	display_next_tetri(main_t *param, map_t *next);
+void	display_form(map_t *tmp);
 
 //create_current_next
-void 	create_current(main_t *param);
-void 	create_next(main_t *param);
+map_t *create_random_tetri(main_t *param);
 
 //create_tetris_title
 void 	create_tetris_title(void);

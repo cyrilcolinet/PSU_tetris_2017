@@ -7,14 +7,14 @@
 
 #include "tetris.h"
 
-static int get_len(main_t *param)
+static int get_len(map_t *tmp)
 {
 	int len = 0;
 	int nb = 0;
 
-	for (int i = 0; param->current[i] != NULL; i++) {
+	for (int i = 0; tmp->form[i] != NULL; i++) {
 		len = 0;
-		for (int j = 0; param->current[i][j] != '\0'; j++)
+		for (int j = 0; tmp->form[i][j] != '\0'; j++)
 			len++;
 		if (len > nb)
 			nb = len;
@@ -23,23 +23,22 @@ static int get_len(main_t *param)
 	return (nb);
 }
 
-void deplacement(main_t *param, int n)
+void deplacement(main_t *param, map_t *tmp, int n)
 {
 	char c;
-	int nb = get_len(param);
+	int nb = get_len(tmp);
 
 	if (n == param->config->kr) {
-		c = mvwinch(stdscr, param->pos.y, param->pos.x + nb + 2)
-			& A_CHARTEXT;
+		c = mvwinch(stdscr, tmp->pos_y, tmp->pos_x + nb + 2) & A_CHARTEXT;
 		if (c != '|') {
-			param->pos.x += 2;
+			tmp->pos_x += 2;
 		}
 	}
 	if (n == param->config->kl) {
-		c = mvwinch(stdscr, param->pos.y, param->pos.x - 2)
+		c = mvwinch(stdscr, tmp->pos_y, tmp->pos_x - 2)
 			& A_CHARTEXT;
 		if (c != '|') {
-			param->pos.x -= 2;
+		        tmp->pos_x -= 2;
 		}
 	}
 }
