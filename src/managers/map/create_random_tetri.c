@@ -37,8 +37,7 @@ map_t *create_random_tetri(main_t *param)
 	bool set = false;
 
 	srand(time(NULL));
-	while (nb <= 0 || nb > 10)
-		nb = (rand() + 1) % (param->config->nb_tetri + 1);
+	nb = (rand() + 1) % (param->config->nb_tetri + 1);
 	while (!set) {
 		while (tmp->next != NULL) {
 			if (tmp->next->id == nb
