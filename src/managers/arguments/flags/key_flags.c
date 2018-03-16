@@ -12,8 +12,8 @@ void manage_level_flag(main_t *param)
 	int level = 0;
 
 	if (!my_str_isnum(optarg)) {
-		write(2, optarg, my_strlen(optarg));
-		write(2, " : is not a number.\n", 20);
+		write(1, optarg, my_strlen(optarg));
+		write(1, " : is not a number.\n", 20);
 		free_all(param);
 		exit(84);
 	}
@@ -27,14 +27,14 @@ char **map_change_error(int count, main_t *param)
 	char **arr = NULL;
 
 	if (count != 1) {
-		write(2, "Invalid map size.\n", 18);
+		write(1, "Invalid map size.\n", 18);
 		my_freetab(arr);
 		free_all(param);
 		exit(84);
 	}
 	arr = my_strtok(optarg, ',');
 	if (arr[1] == NULL) {
-		write(2, "Invalid map size.\n", 18);
+		write(1, "Invalid map size.\n", 18);
 		my_freetab(arr);
 		free_all(param);
 		exit(84);
@@ -57,7 +57,7 @@ void change_map_size(main_t *param)
 		return;
 	for (i = 0; arr[i]; i++)
 		if (!my_str_isnum(arr[i])) {
-			write(2, "Invalid map size.\n", 18);
+			write(1, "Invalid map size.\n", 18);
 			my_freetab(arr);
 			free_all(param);
 			exit(84);
@@ -71,8 +71,8 @@ void change_map_size(main_t *param)
 void change_key(int res, main_t *param)
 {
 	if (my_strlen(optarg) != 1) {
-		write(2, optarg, my_strlen(optarg));
-		write(2, "Invalid key character.\n", 23);
+		write(1, optarg, my_strlen(optarg));
+		write(1, "Invalid key character.\n", 23);
 		free_all(param);
 		exit(84);
 	} else {
