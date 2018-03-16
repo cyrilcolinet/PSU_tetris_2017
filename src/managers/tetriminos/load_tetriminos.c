@@ -10,7 +10,7 @@
 void fill_struct(main_t *param, char *path, char *file)
 {
 	tetriminos_t *tmp = param->tetri;
-	int id = 0;
+	int id = 1;
 	int err;
 
 	while (tmp->next != NULL) {

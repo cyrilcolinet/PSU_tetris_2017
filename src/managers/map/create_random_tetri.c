@@ -5,7 +5,7 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 static char **copie_form(char **str, char **tmp)
 {
@@ -31,23 +31,30 @@ static char **copie_form(char **str, char **tmp)
 
 map_t *create_random_tetri(main_t *param)
 {
-	tetriminos_t *tmp;
-	int nb;
-	int x = 1;
+	tetriminos_t *tmp = param->tetri;
 	map_t *new = malloc(sizeof(map_t));
+	int nb = 0;
+	bool set = false;
 
-	while (x == 1) {
-		tmp = param->tetri;
-		tmp = tmp->next;
-		srand(time(NULL));
-		nb = rand() % param->config->nb_tetri;
-		while (tmp->id != nb) {
+	srand(time(NULL));
+	while (nb <= 0 || nb > 10)
+		nb = (rand() + 1) % (param->config->nb_tetri + 1);
+
+	while (!set) {
+		while (tmp->next != NULL) {
+			if (tmp->next->id == nb && tmp->next->invalid == 0) {
+				set = true;
+				break;
+			} else if (tmp->next->id == nb && tmp->next->invalid == 1) {
+				nb = (rand() + 1) % (param->config->nb_tetri + 1);
+				tmp = param->tetri;
+				break;
+			}
 			tmp = tmp->next;
 		}
-		if (tmp->invalid == 0)
-			x = 2;
 	}
-	new->color = tmp->color;
-	new->form = copie_form(new->form, tmp->form);
+
+	new->color = tmp->next->color;
+	new->form = copie_form(new->form, tmp->next->form);
 	return (new);
 }
