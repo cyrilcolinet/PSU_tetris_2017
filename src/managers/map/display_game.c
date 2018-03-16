@@ -37,7 +37,7 @@ void display_game(main_t *param)
 	curs_set(FALSE);
 	ini_color();
 
-	while (n != param->config->kq) {
+	while (n != param->config->k_quit.c) {
 		clear();
 		create_tetris_title();
 		display_map(param);

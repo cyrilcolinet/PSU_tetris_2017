@@ -10,17 +10,17 @@
 static void affichage_key(main_t *param)
 {
 	my_putstr("Key Left : ");
-	my_putchar(param->config->kl);
+	my_putstr(param->config->k_left.display);
 	my_putstr("\nKey Right : ");
-	my_putchar(param->config->kr);
+	my_putstr(param->config->k_right.display);
 	my_putstr("\nKey Turn : ");
-	my_putchar(param->config->kt);
+	my_putstr(param->config->k_turn.display);
 	my_putstr("\nKey Drop : ");
-	my_putchar(param->config->kd);
+	my_putstr(param->config->k_drop.display);
 	my_putstr("\nKey Quit : ");
-	my_putchar(param->config->kq);
+	my_putstr(param->config->k_quit.display);
 	my_putstr("\nKey Pause : ");
-	my_putchar(param->config->kp);
+	my_putstr(param->config->k_pause.display);
 	my_putstr("\nNext : ");
 	if (param->config->next)
 		my_putstr("Yes");
@@ -31,9 +31,9 @@ static void affichage_key(main_t *param)
 static void affichage_info_valid(tetriminos_t *tmp)
 {
 	my_putstr("Size ");
-	my_put_nbr(tmp->height);
-	my_putstr("*");
 	my_put_nbr(tmp->width);
+	my_putstr("*");
+	my_put_nbr(tmp->height);
 	my_putstr(" : Color ");
 	my_put_nbr(tmp->color);
 	my_putstr(" :\n");
@@ -71,9 +71,9 @@ void debug_mode(main_t *param)
 		my_putstr("\nLevel : ");
 		my_put_nbr(param->config->level);
 		my_putstr("\nSize : ");
-		my_put_nbr(param->config->size_w);
-		my_putstr("*");
 		my_put_nbr(param->config->size_h);
+		my_putstr("*");
+		my_put_nbr(param->config->size_w);
 		my_putstr("\nTetriminos : ");
 		my_put_nbr(param->config->nb_tetri);
 		my_putchar('\n');

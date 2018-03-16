@@ -28,13 +28,13 @@ void deplacement(main_t *param, map_t *tmp, int n)
 	char c;
 	int nb = get_len(tmp);
 
-	if (n == param->config->kr) {
+	if (n == param->config->k_right.c) {
 		c = mvwinch(stdscr, tmp->pos_y, tmp->pos_x + nb + 2) & A_CHARTEXT;
 		if (c != '|') {
 			tmp->pos_x += 2;
 		}
 	}
-	if (n == param->config->kl) {
+	if (n == param->config->k_left.c) {
 		c = mvwinch(stdscr, tmp->pos_y, tmp->pos_x - 2)
 			& A_CHARTEXT;
 		if (c != '|') {

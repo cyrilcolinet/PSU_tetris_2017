@@ -8,11 +8,18 @@
 # ifndef STRUCTS_TETRIS_H
 # define STRUCTS_TETRIS_H
 
+struct 	keym_t;
+struct 	map_t;
 struct 	tetriminos_t;
 struct 	config_t;
 struct 	pos_t;
 struct 	stats_t;
 struct 	main_t;
+
+typedef struct keym_t {
+	char 	c;
+	char 	*display;
+} 	keym_t;
 
 typedef struct map_t {
 	int color;
@@ -36,12 +43,12 @@ typedef struct tetriminos_t {
 } 	tetriminos_t;
 
 typedef struct config_t {
-	char 	kl;
-	char 	kr;
-	char 	kt;
-	char 	kd;
-	char 	kq;
-	char 	kp;
+	keym_t 	k_left;
+	keym_t 	k_right;
+	keym_t 	k_turn;
+	keym_t 	k_drop;
+	keym_t 	k_quit;
+	keym_t 	k_pause;
 	int 	next;
 	int 	debug;
 	int 	level;

@@ -94,10 +94,13 @@ int 	config_tetriminos(main_t *param);
 void 	execute_action_on_flag(int res, main_t *param);
 void 	arguments_manager(main_t *param);
 
-// managers/arguments/key_flag.c
+// managers/arguments/flags/key_flag.c
 void 	manage_level_flag(main_t *param);
-char 	**map_change_error(int count);
+char 	**map_change_error(int count, main_t *param);
 void 	change_map_size(main_t *param);
 void 	change_key(int res, main_t *param);
+
+// managers/arguments/flags/key_manager.c
+keym_t 	config_key(char c);
 
 # endif

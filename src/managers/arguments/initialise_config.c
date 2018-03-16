@@ -9,12 +9,12 @@
 
 void initialise_config(main_t *param)
 {
-	param->config->kl = 68;
-	param->config->kr = 67;
-	param->config->kt = 65;
-	param->config->kd = 66;
-	param->config->kq = 'q';
-	param->config->kp = 32;
+	param->config->k_left = config_key(68);
+	param->config->k_right = config_key(67);
+	param->config->k_turn = config_key(65);
+	param->config->k_drop = config_key(66);
+	param->config->k_quit = config_key('q');
+	param->config->k_pause = config_key(32);
 	param->config->next = 1;
 	param->config->debug = 0;
 	param->config->level = 1;

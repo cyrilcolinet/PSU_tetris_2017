@@ -20,6 +20,7 @@ SRC_FILES	= 	main.c		\
 			managers/arguments/initialise_config.c	\
 			managers/arguments/configure_args.c 	\
 			managers/arguments/flags/key_flags.c 	\
+			managers/arguments/flags/key_manager.c 		\
 			managers/map/new_form.c	\
 			managers/map/display_game.c	\
 			managers/map/display_map.c	\

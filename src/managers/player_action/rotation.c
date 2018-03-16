@@ -49,8 +49,8 @@ void rotation(main_t *param, int n, map_t *tmp)
 	int nb = 0;
 	char **new;
 
-	if (n == param->config->kt) {
-		len = get_len(tmp->form); 
+	if (n == param->config->k_turn.c) {
+		len = get_len(tmp->form);
 		new = malloc(sizeof(char *) * (len + 1));
 		new[len] = NULL;
 		for (int i = 0; tmp->form[i] != NULL; i++)

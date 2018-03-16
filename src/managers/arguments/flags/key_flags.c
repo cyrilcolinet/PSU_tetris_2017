@@ -14,28 +14,30 @@ void manage_level_flag(main_t *param)
 	if (!my_str_isnum(optarg)) {
 		write(2, optarg, my_strlen(optarg));
 		write(2, " : is not a number.\n", 20);
-		return;
+		free_all(param);
+		exit(84);
 	}
 
 	level = my_atoi(optarg);
 	param->config->level = level;
 }
 
-char **map_change_error(int count)
+char **map_change_error(int count, main_t *param)
 {
 	char **arr = NULL;
 
 	if (count != 1) {
-		write(2, optarg, my_strlen(optarg));
-		write(2, " : invalid map size.\n", 21);
+		write(2, "Invalid map size.\n", 18);
 		my_freetab(arr);
-		return (NULL);
+		free_all(param);
+		exit(84);
 	}
 	arr = my_strtok(optarg, ',');
 	if (arr[1] == NULL) {
-		write(2, optarg, my_strlen(optarg));
-		write(2, " : invalid map size.\n", 21);
-		return (NULL);
+		write(2, "Invalid map size.\n", 18);
+		my_freetab(arr);
+		free_all(param);
+		exit(84);
 	}
 
 	return (arr);
@@ -50,15 +52,15 @@ void change_map_size(main_t *param)
 	for (i = 0; optarg[i]; i++)
 		if (optarg[i] == ',')
 			count++;
-	arr = map_change_error(count);
+	arr = map_change_error(count, param);
 	if (!arr)
 		return;
 	for (i = 0; arr[i]; i++)
 		if (!my_str_isnum(arr[i])) {
-			write(2, optarg, my_strlen(optarg));
-			write(2, " : invalid map size.\n", 21);
+			write(2, "Invalid map size.\n", 18);
 			my_freetab(arr);
-			return;
+			free_all(param);
+			exit(84);
 		}
 	param->config->size_h = my_atoi(arr[0]);
 	param->config->size_w = my_atoi(arr[1]);
@@ -70,19 +72,21 @@ void change_key(int res, main_t *param)
 	if (my_strlen(optarg) != 1) {
 		write(2, optarg, my_strlen(optarg));
 		write(2, "Invalid key character.\n", 23);
+		free_all(param);
+		exit(84);
 	} else {
 		switch (res) {
-			case 'l': param->config->kl = optarg[0];
+			case 'l': param->config->k_left = config_key(*optarg);
 			break;
-			case 'r': param->config->kr = optarg[0];
+			case 'r': param->config->k_right = config_key(*optarg);
 			break;
-			case 't': param->config->kt = optarg[0];
+			case 't': param->config->k_turn = config_key(*optarg);
 			break;
-			case 'd': param->config->kd = optarg[0];
+			case 'd': param->config->k_drop = config_key(*optarg);
 			break;
-			case 'q': param->config->kq = optarg[0];
+			case 'q': param->config->k_quit = config_key(*optarg);
 			break;
-			case 'p': param->config->kp = optarg[0];
+			case 'p': param->config->k_pause = config_key(*optarg);
 			default:
 			break;
 		}
