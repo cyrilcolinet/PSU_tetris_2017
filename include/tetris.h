@@ -56,7 +56,7 @@ void	debug_mode(main_t *param);
 
 //player_action
 void 	deplacement(main_t *param, map_t *tmp, int n);
-void	rotation(main_t *param, int n);
+void	rotation(main_t *param, int n, map_t *tmp);
 
 //map_management
 map_t	*add_new_form_map(map_t *tmp);
