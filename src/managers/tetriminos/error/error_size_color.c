@@ -9,10 +9,17 @@
 
 int error_size_color(char *str)
 {
+	char **tmp;
+	int nb;
+
 	for (int i = 0; str[i] != '\0'; i++) {
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ' ') {
 			return (1);
 		}
 	}
+	tmp = my_strtok(str, ' ');
+	nb = atoi(tmp[2]);
+	if (nb < 1 || nb > 6)
+		return (1);
 	return (0);
 }
