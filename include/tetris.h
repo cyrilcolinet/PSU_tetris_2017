@@ -67,7 +67,7 @@ void	display_next_tetri(main_t *param, map_t *next);
 void	display_form(map_t *tmp);
 
 //create_current_next
-map_t *create_random_tetri(main_t *param);
+map_t 	*create_random_tetri(main_t *param);
 
 //create_tetris_title
 void 	create_tetris_title(void);
