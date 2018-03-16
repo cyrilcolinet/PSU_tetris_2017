@@ -15,10 +15,12 @@ void display_form(map_t *tmp)
 	for (int i = 0; tmp->form[i] != NULL; i++) {
 		nb = 0;
 		for (int j = 0; tmp->form[i][j] != '\0'; j++) {
-			mvprintw(tmp->pos_y + i, tmp->pos_x + nb, "%c", tmp->form[i][j]);
+			mvprintw(tmp->pos_y + i,
+				tmp->pos_x + nb, "%c", tmp->form[i][j]);
 			nb++;
 			if (tmp->form[i][j + 1] != '\0') {
-				mvprintw(tmp->pos_y + i, tmp->pos_x + nb, "%c", ' ');
+				mvprintw(tmp->pos_y + i,
+					tmp->pos_x + nb, "%c", ' ');
 				nb++;
 			}
 		}

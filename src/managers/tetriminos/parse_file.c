@@ -68,6 +68,31 @@ char *parse_filename(char *file)
 	return (ret);
 }
 
+static char *clear_str(char *str)
+{
+	int nb = 0;
+	int len= 0;
+	char *s;
+
+	for (int i = 0; str[i] != '\0'; i++) {
+		nb = 0;
+		while (str[i] != '*' && str[i] != '\0') {
+			nb++;
+			i++;
+		}
+		if (str[i] == '*') {
+			len += nb;
+			len++;
+		}
+	}
+	s = malloc(sizeof(char) * (len + 1));
+	for (int i = 0; i < len; i++)
+		s[i] = str[i];
+	s[len] = '\0';
+	free(str);
+	return (s);
+}
+
 char **get_tetrimino_form(char *file, int height)
 {
 	char **tab = malloc(sizeof(char *) * (height + 1));
@@ -80,8 +105,10 @@ char **get_tetrimino_form(char *file, int height)
 	if ((fd = open(file, O_RDONLY)) < 0)
 		return (NULL);
 	while ((line = get_next_line(fd))) {
-		if (loop >= 0)
+		if (loop >= 0) {
+			line = clear_str(line);
 			tab[loop] = my_strdup(line);
+		}
 		free(line);
 		loop++;
 	}

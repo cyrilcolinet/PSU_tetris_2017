@@ -39,21 +39,22 @@ map_t *create_random_tetri(main_t *param)
 	srand(time(NULL));
 	while (nb <= 0 || nb > 10)
 		nb = (rand() + 1) % (param->config->nb_tetri + 1);
-
 	while (!set) {
 		while (tmp->next != NULL) {
-			if (tmp->next->id == nb && tmp->next->invalid == 0) {
+			if (tmp->next->id == nb
+			&& tmp->next->invalid == 0) {
 				set = true;
 				break;
-			} else if (tmp->next->id == nb && tmp->next->invalid == 1) {
-				nb = (rand() + 1) % (param->config->nb_tetri + 1);
+			} else if (tmp->next->id == nb
+				&& tmp->next->invalid == 1) {
+				nb = (rand() + 1) %
+					(param->config->nb_tetri + 1);
 				tmp = param->tetri;
 				break;
 			}
 			tmp = tmp->next;
 		}
 	}
-
 	new->color = tmp->next->color;
 	new->form = copie_form(new->form, tmp->next->form);
 	return (new);

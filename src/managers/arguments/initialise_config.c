@@ -9,12 +9,12 @@
 
 void initialise_config(main_t *param)
 {
-	param->config->kl = 'a';
-	param->config->kr = 'z';
-	param->config->kt = 't';
-	param->config->kd = 'd';
+	param->config->kl = 68;
+	param->config->kr = 67;
+	param->config->kt = 65;
+	param->config->kd = 66;
 	param->config->kq = 'q';
-	param->config->kp = 'p';
+	param->config->kp = 32;
 	param->config->next = 1;
 	param->config->debug = 0;
 	param->config->level = 1;
