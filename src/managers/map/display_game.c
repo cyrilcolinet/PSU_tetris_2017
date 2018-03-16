@@ -43,12 +43,12 @@ void display_game(main_t *param)
 		display_map(param);
 		display_score(param);
 		display_form(tmp->next);
-		rotation(param, n, tmp->next);
 
 		if (param->config->next)
 			display_next_tetri(param, tmp->next->next);
 		n = getch();
 		deplacement(param, tmp->next, n);
+		rotation(param, n, tmp->next);
 		if (n == 'c') {
 			tmp->next = add_new_form_map(tmp->next);
 			tmp->next->next = create_random_tetri(param);
