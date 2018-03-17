@@ -67,7 +67,7 @@ void rotation(main_t *param, int n, map_t *tmp)
 		my_freetab(tmp->form);
 		tmp->form = new;
 		if (len < nb && ((tmp->pos_x + nb + nb - 2)
-				 >= (35 + param->config->size_w * 2)))
+				>= (35 + param->config->size_w * 2)))
 			tmp->pos_x -= (nb - len) * 2;
 	}
 }
