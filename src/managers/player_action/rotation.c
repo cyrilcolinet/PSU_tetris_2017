@@ -12,11 +12,9 @@ static char **copie_and_rotate(char **new, char **form, int i, int j)
 	int a = i;
 	int b = j - 1;
 
-	for (int e = 0; e < i; e++) {
-		for (int d = 0; d < j; d++) {
+	for (int e = 0; e < i; e++)
+		for (int d = 0; d < j; d++)
 			new[e][d] = ' ';
-		}
-	}
 	for (int k = 0; form[k] != NULL; k++) {
 		for (int l = 0; form[k][l] != '\0'; l++) {
 			new[a - i][b] = form[k][l];
@@ -43,6 +41,16 @@ static int get_len(char **form)
 	return (nb);
 }
 
+static char **malloc_new(char **new, char **form, int len, int nb)
+{
+	for (int i = 0; i < len; i++) {
+		new[i] = malloc(sizeof(char) * (nb + 1));
+		new[i][nb] = '\0';
+	}
+	new = copie_and_rotate(new, form, len, nb);
+	return (new);
+}
+
 void rotation(main_t *param, int n, map_t *tmp)
 {
 	int len;
@@ -55,11 +63,7 @@ void rotation(main_t *param, int n, map_t *tmp)
 		new[len] = NULL;
 		for (int i = 0; tmp->form[i] != NULL; i++)
 			nb++;
-		for (int i = 0; i < len; i++) {
-			new[i] = malloc(sizeof(char) * (nb + 1));
-			new[i][nb] = '\0';
-		}
-		new = copie_and_rotate(new, tmp->form, len, nb);
+		new = malloc_new(new, tmp->form, len , nb);
 		my_freetab(tmp->form);
 		tmp->form = new;
 		if (len < nb)
