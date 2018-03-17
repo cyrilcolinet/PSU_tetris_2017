@@ -28,7 +28,7 @@ void display_form(map_t *tmp)
 			mvprintw(tmp->pos_y + i,
 				tmp->pos_x + nb, "%c", tmp->form[i][j]);
 			nb++;
-			nb = print_space(tmp, i, j ,nb);
+			nb = print_space(tmp, i, j, nb);
 		}
 	}
 	attroff(COLOR_PAIR(tmp->color));
