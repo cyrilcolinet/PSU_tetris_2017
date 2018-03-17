@@ -7,6 +7,19 @@
 
 # include "tetris.h"
 
+static int check_nb_valid(main_t *param)
+{
+	tetriminos_t *tmp = param->tetri;
+	int nb = 0;
+
+	while (tmp->next != NULL) {
+		if (tmp->next->invalid == 0)
+			nb++;
+		tmp = tmp->next;
+	}
+	return (nb);
+}
+
 int tetris(main_t *param)
 {
 	if (config_tetriminos(param) != 0)
@@ -15,6 +28,10 @@ int tetris(main_t *param)
 	arguments_manager(param);
 	error_form(param);
 	debug_mode(param);
+	if (param->config->nb_tetri <= 0 || (check_nb_valid(param)) <= 0) {
+		my_putstr("no valid tetrimino detected\n");
+		return (84);
+	}
 	display_game(param);
 	return (0);
 }
