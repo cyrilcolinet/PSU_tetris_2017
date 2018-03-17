@@ -29,32 +29,38 @@ static char **copie_form(char **str, char **tmp)
 	return (str);
 }
 
-map_t *create_random_tetri(main_t *param)
+tetriminos_t *check_occurence(main_t *param, int nb)
 {
 	tetriminos_t *tmp = param->tetri;
-	//tetriminos_t *t2 = param->tetri;
-	map_t *new = malloc(sizeof(map_t));
-	int nb = 0;
-	bool set = false;
 
-	srand(time(NULL));
-	nb = (rand() + 1) % (param->config->nb_tetri + 1);
-	while (!set) {
-		while (tmp->next != NULL) {
-			if (tmp->next->id == nb && !tmp->next->invalid) {
-				set = true;
-				break;
-			} else if (tmp->next->invalid == 1) {
-				printf("%s\n", tmp->next->name);
-				nb = (rand() + 1) % (param->config->nb_tetri + 1);
-				tmp = param->tetri;
-				break;
-			}
-			tmp = tmp->next;
+	while (tmp->next != NULL) {
+		if (tmp->next->id == nb && !tmp->next->invalid) {
+			return (tmp->next);
+		} else if (tmp->next->invalid == 1) {
+			tmp = param->tetri;
+			return (NULL);
 		}
+		tmp = tmp->next;
 	}
 
-	new->color = tmp->next->color;
-	new->form = copie_form(new->form, tmp->next->form);
+	return (NULL);
+}
+
+map_t *create_random_tetri(main_t *param)
+{
+	tetriminos_t *val = NULL;
+	map_t *new = malloc(sizeof(map_t));
+	int nb = 0;
+
+	srand(time(NULL));
+	while (true) {
+		nb = (rand() + 1) % (param->config->nb_tetri + 1);
+		val = check_occurence(param, nb);
+		if (val != NULL)
+			break;
+	}
+
+	new->color = val->color;
+	new->form = copie_form(new->form, val->form);
 	return (new);
 }
