@@ -87,6 +87,5 @@ int config_tetriminos(main_t *param)
 
 		st = get_files(param);
 	}
-
 	return (st);
 }

@@ -7,6 +7,16 @@
 
 #include "tetris.h"
 
+static int print_space(map_t *tmp, int i, int j, int nb)
+{
+	if (tmp->form[i][j + 1] != '\0') {
+		mvprintw(tmp->pos_y + i,
+			 tmp->pos_x + nb, "%c", ' ');
+		nb++;
+	}
+	return (nb);
+}
+
 void display_form(map_t *tmp)
 {
 	int nb = 0;
@@ -18,11 +28,7 @@ void display_form(map_t *tmp)
 			mvprintw(tmp->pos_y + i,
 				tmp->pos_x + nb, "%c", tmp->form[i][j]);
 			nb++;
-			if (tmp->form[i][j + 1] != '\0') {
-				mvprintw(tmp->pos_y + i,
-					tmp->pos_x + nb, "%c", ' ');
-				nb++;
-			}
+			nb = print_space(tmp, i, j ,nb);
 		}
 	}
 	attroff(COLOR_PAIR(tmp->color));
