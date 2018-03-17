@@ -55,16 +55,16 @@ int set_first_values(tetriminos_t *tmp, char *path)
 
 char *parse_filename(char *file)
 {
-	char **arr = NULL;
 	char *ret = NULL;
+	int len = my_strlen(file);
 
 	if (file == NULL)
 		return (NULL);
-
-	arr = my_strtok(file, '.');
-	ret = my_strdup(arr[0]);
-	my_freetab(arr);
-
+	len = len - 10;
+	ret = malloc(sizeof(char) * (len + 1));
+	for (int i = 0; i < len; i++)
+		ret[i] = file[i];
+	ret[len] = '\0';
 	return (ret);
 }
 
