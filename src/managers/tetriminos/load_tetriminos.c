@@ -93,7 +93,7 @@ int config_tetriminos(main_t *param)
 void free_tetriminos(main_t *param)
 {
 	tetriminos_t *tmp = NULL;
-	
+
 	while (param->tetri != NULL) {
 		tmp = param->tetri;
 		param->tetri = param->tetri->next;
