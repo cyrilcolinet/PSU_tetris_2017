@@ -76,7 +76,7 @@ void 		debug_mode(main_t *param);
 // --- MAP
 
 // new_form.c
-map_t 		*add_new_form_map(map_t *tmp);
+void 		add_new_form_map(main_t *param);
 
 // display_score.c
 int 		nb_length(int nb);

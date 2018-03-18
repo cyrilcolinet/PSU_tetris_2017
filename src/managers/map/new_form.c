@@ -7,12 +7,18 @@
 
 # include "tetris.h"
 
-map_t *add_new_form_map(map_t *tmp)
+void add_new_form_map(main_t *param)
 {
-	tmp->stop = 0;
+	map_t *tmp = param->map;
+
+	while (tmp->next->stop == 0)
+		tmp = tmp->next;
 	tmp = tmp->next;
-	tmp->stop = 1;
-	tmp->pos_x = 35;
-	tmp->pos_y = 2;
-	return (tmp);
+	tmp->stop = 0;
+	tmp->next->stop = 1;
+	tmp->next->pos_x = 35;
+	tmp->next->pos_y = 2;
+	tmp->next->next = create_random_tetri(param);
+	tmp->next->next->stop = 2;
+	tmp->next->next->next = NULL;
 }

@@ -58,7 +58,6 @@ map_t *create_random_tetri(main_t *param)
 		if (val != NULL)
 			break;
 	}
-
 	new->color = val->color;
 	new->form = copy_form(new->form, val->form);
 	return (new);
