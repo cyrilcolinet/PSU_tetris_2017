@@ -85,7 +85,7 @@ void 		display_score(main_t *param);
 
 // display_next_tetri.c
 void 		display_next_tetri_size_one(int n, int b);
-void 		display_next_tetri(main_t *param, map_t *next); // TODO: coding style
+void 		display_next_tetri(main_t *param, map_t *next);
 
 // display_map.c
 void 		display_map(main_t *param);
@@ -93,7 +93,7 @@ void 		display_map(main_t *param);
 // display_game.c
 void 		ini_map(void);
 void 		display_all(main_t *param);
-void 		display_game(main_t *param); // TODO: coding style
+void 		display_game(main_t *param);
 
 // display_form.c
 int 		print_space(map_t *tmp, int i, int j, int nb);
