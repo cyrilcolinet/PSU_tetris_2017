@@ -7,9 +7,18 @@
 
 # include "tetris.h"
 
-void display_map(main_t *param)
+static void display_previous_form(main_t *param)
 {
 	map_t *tmp = param->map;
+
+	while (tmp->next->stop == 0) {
+		display_form(tmp->next);
+		tmp = tmp->next;
+	}
+}
+
+void display_map(main_t *param)
+{
 	int x = param->config->size_w;
 	int y = param->config->size_h;
 
@@ -25,8 +34,5 @@ void display_map(main_t *param)
 		mvprintw(1 + i, 33, "|");
 		mvprintw(1 + i, 33 + x * 2 + 2, "|");
 	}
-	while (tmp->next->stop == 0) {
-		display_form(tmp->next);
-		tmp->next = tmp->next->next;
-	}
+	display_previous_form(param);
 }

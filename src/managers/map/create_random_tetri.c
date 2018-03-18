@@ -42,7 +42,6 @@ tetriminos_t *check_occurence(main_t *param, int nb)
 		}
 		tmp = tmp->next;
 	}
-
 	return (NULL);
 }
 

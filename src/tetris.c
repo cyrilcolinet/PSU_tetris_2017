@@ -28,7 +28,8 @@ int tetris(main_t *param)
 	arguments_manager(param);
 	error_form(param);
 	debug_mode(param);
-	if (param->config->nb_tetri <= 0 || (check_nb_valid(param)) <= 0) {
+	if (param->config->nb_tetri <= 0
+	|| (check_nb_valid(param)) <= 0) {
 		my_putstr("no valid tetrimino detected\n");
 		return (84);
 	}

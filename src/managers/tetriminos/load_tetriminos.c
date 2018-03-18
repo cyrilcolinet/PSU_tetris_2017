@@ -7,34 +7,6 @@
 
 # include "tetris.h"
 
-void fill_struct(main_t *param, char *path, char *file)
-{
-	tetriminos_t *tmp = param->tetri;
-	int id = 1;
-	int err;
-
-	while (tmp->next != NULL) {
-		tmp = tmp->next;
-		id++;
-	}
-	tmp->next = malloc(sizeof(tetriminos_t));
-	if (tmp->next == NULL)
-		return;
-	err = set_first_values(tmp->next, path);
-	tmp->next->id = id;
-	tmp->next->name = parse_filename(file);
-	tmp->next->path = path;
-	tmp->next->next = NULL;
-	if (err == 0) {
-		tmp->next->form = get_tetrimino_form(path, tmp->next->height);
-		tmp->next->invalid = 0;
-	} else {
-		tmp->next->form = NULL;
-		tmp->next->invalid = 1;
-	}
-	param->config->nb_tetri++;
-}
-
 void setup_tetrimino(dir_t *dirent, main_t *param)
 {
 	char *path = NULL;

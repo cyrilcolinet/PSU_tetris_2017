@@ -7,7 +7,20 @@
 
 # include "tetris.h"
 
-void check_character(tetriminos_t *tmp, main_t *param)
+static tetriminos_t *check_invalid(tetriminos_t *tmp, int i, int j, int nb)
+{
+	if (nb == 1) {
+		if (tmp->color == 0 || tmp->color > 6)
+			tmp->invalid = 1;
+	} else if (nb == 2){
+		if (tmp->form[i][j] != ' '
+		&& tmp->form[i][j] != '*')
+			tmp->invalid = 1;
+	}
+	return (tmp);
+}
+
+tetriminos_t *check_character(tetriminos_t *tmp, main_t *param)
 {
 	int len = 0;
 	int width = 0;
@@ -18,9 +31,7 @@ void check_character(tetriminos_t *tmp, main_t *param)
 		len = 0;
 		for (int j = 0; tmp->form[i][j] != '\0' ; j++) {
 			len++;
-			if (tmp->form[i][j] != ' '
-			&& tmp->form[i][j] != '*')
-				tmp->invalid = 1;
+			tmp = check_invalid(tmp, i, j, 2);
 		}
 		if (width < len)
 			width = len;
@@ -29,6 +40,7 @@ void check_character(tetriminos_t *tmp, main_t *param)
 		tmp->invalid = 1;
 	if (width >= param->config->size_w)
 		tmp->invalid = 1;
+	return (tmp);
 }
 
 void error_form(main_t *param)
@@ -37,9 +49,8 @@ void error_form(main_t *param)
 
 	while (tmp->next != NULL) {
 		if (tmp->next->invalid == 0) {
-			if (tmp->next->color == 0 || tmp->next->color > 6)
-				tmp->next->invalid = 1;
-			check_character(tmp->next, param);
+			tmp->next = check_invalid(tmp->next, 0, 0, 1);
+			tmp->next = check_character(tmp->next, param);
 		}
 		tmp = tmp->next;
 	}

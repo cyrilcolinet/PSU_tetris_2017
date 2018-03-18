@@ -36,6 +36,7 @@ SRC_FILES	= 	main.c		\
 			managers/map/tetris_letter/letter_five.c	\
 			managers/map/tetris_letter/letter_six.c	\
 			managers/tetriminos/load_tetriminos.c 	\
+			managers/tetriminos/fill_struct.c 	\
 			managers/tetriminos/parse_file.c 	\
 			managers/tetriminos/error/error_size_color.c	\
 			managers/tetriminos/error/error_form.c	\

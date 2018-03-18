@@ -75,11 +75,11 @@ char *clear_str(char *str)
 	char *s;
 
 	for (int i = 0; str[i] != '\0'; i++) {
+		if (str[i] != ' ' && str[i] != '*')
+			return (str);
 		nb = 0;
-		while (str[i] != '*' && str[i] != '\0') {
+		for (; str[i] != '*' && str[i] != '\0'; i++)
 			nb++;
-			i++;
-		}
 		if (str[i] == '*')
 			len += (nb + 1);
 	}

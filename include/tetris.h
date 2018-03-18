@@ -150,7 +150,7 @@ void 		free_tetriminos(main_t *param);
 int 		error_size_color(char *str);
 
 // error/error_form.c
-void 		check_character(tetriminos_t *tmp, main_t *param);
+tetriminos_t	*check_character(tetriminos_t *tmp, main_t *param);
 void 		error_form(main_t *param);
 
 // -- UTILS
