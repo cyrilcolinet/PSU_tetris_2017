@@ -89,6 +89,7 @@ void 	fill_struct(main_t *param, char *path, char *file);
 void 	setup_tetrimino(dir_t *dirent, main_t *param);
 int 	get_files(main_t *param);
 int 	config_tetriminos(main_t *param);
+void 	free_tetriminos(main_t *param);
 
 // managers/arguments/configure_args.c
 void 	execute_action_on_flag(int res, main_t *param);

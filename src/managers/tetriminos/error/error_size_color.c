@@ -19,7 +19,10 @@ int error_size_color(char *str)
 	}
 	tmp = my_strtok(str, ' ');
 	nb = atoi(tmp[2]);
-	if (nb < 1 || nb > 6)
+	if (nb < 1 || nb > 6) {
+		my_freetab(tmp);
 		return (1);
+	}
+	my_freetab(tmp);
 	return (0);
 }

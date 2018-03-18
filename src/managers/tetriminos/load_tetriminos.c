@@ -89,3 +89,17 @@ int config_tetriminos(main_t *param)
 	}
 	return (st);
 }
+
+void free_tetriminos(main_t *param)
+{
+	tetriminos_t *tmp = NULL;
+	
+	while (param->tetri != NULL) {
+		tmp = param->tetri;
+		param->tetri = param->tetri->next;
+		my_freetab(tmp->form);
+		free(tmp->name);
+		free(tmp->path);
+		free(tmp);
+	}
+}

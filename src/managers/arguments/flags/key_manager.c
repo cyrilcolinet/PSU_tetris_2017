@@ -9,7 +9,8 @@
 
 char *configure_key_display(char c)
 {
-	char *str = my_strconfigure(1);
+	char *str = NULL;
+
 	if (c == 68)
 		return (my_strdup("^EOD"));
 	if (c == 67)
@@ -21,6 +22,7 @@ char *configure_key_display(char c)
 	if (c == 32)
 		return (my_strdup("(space)"));
 
+	str = my_strconfigure(1);
 	str[0] = c;
 	return (str);
 }
@@ -33,4 +35,14 @@ keym_t config_key(char c)
 	keymap.display = configure_key_display(c);
 
 	return (keymap);
+}
+
+void free_keymaps(main_t *param)
+{
+	free(param->config->k_left.display);
+	free(param->config->k_right.display);
+	free(param->config->k_turn.display);
+	free(param->config->k_drop.display);
+	free(param->config->k_quit.display);
+	free(param->config->k_pause.display);
 }

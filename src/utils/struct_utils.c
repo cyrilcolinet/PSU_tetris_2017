@@ -7,25 +7,24 @@
 
 # include "tetris.h"
 
-void free_all(main_t *param)
+void free_map(main_t *param)
 {
-	tetriminos_t *tmp = NULL;
 	map_t *map = NULL;
 
-	while (param->tetri != NULL) {
-		tmp = param->tetri;
-		param->tetri = param->tetri->next;
-		my_freetab(tmp->form);
-		free(tmp->name);
-		free(tmp->path);
-		free(tmp);
-	}
 	while (param->map != NULL) {
 		map = param->map;
 		param->map = param->map->next;
 		my_freetab(map->form);
 		free(map);
 	}
+}
+
+void free_all(main_t *param)
+{
+	free_tetriminos(param);
+	free_map(param);
+	free_keymaps(param);
+
 	free(param->stats);
 	free(param->config);
 	free(param);
