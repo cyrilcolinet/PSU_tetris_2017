@@ -61,11 +61,14 @@ static int event(main_t *param)
 void display_game(main_t *param)
 {
 	int n = 1;
+	int nb;
 	map_t *tmp = param->map;
 
 	ini_map();
 	ini_form(param);
 	while (n != param->config->k_quit.c) {
+		if((nb = check_terminal_size(param)) == -12345)
+			break;
 		while (tmp->next->stop != 1)
 			tmp = tmp->next;
 		display_all(param);
@@ -76,4 +79,6 @@ void display_game(main_t *param)
 		refresh();
 	}
 	endwin();
+	if (nb == -12345)
+		my_putstr("You need a largest Terminal to play\n");
 }

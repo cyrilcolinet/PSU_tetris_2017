@@ -94,6 +94,7 @@ void 		display_map(main_t *param);
 void 		ini_map(void);
 void 		display_all(main_t *param);
 void 		display_game(main_t *param);
+int		check_terminal_size(main_t *param);
 
 // display_form.c
 int 		print_space(map_t *tmp, int i, int j, int nb);
