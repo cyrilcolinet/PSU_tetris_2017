@@ -22,23 +22,23 @@ typedef struct keym_t {
 } 	keym_t;
 
 typedef struct map_t {
-	int color;
-	char **form;
-	int pos_x;
-	int pos_y;
-	int stop;
+	int 	color;
+	char 	**form;
+	int 	pos_x;
+	int 	pos_y;
+	int 	stop;
 	struct map_t *next;
 }	map_t;
 
 typedef struct tetriminos_t {
-	int id;
-	int height;
-	int width;
-	int color;
-	int invalid;
-	char *name;
-	char **form;
-	char *path;
+	int 	id;
+	int 	height;
+	int 	width;
+	int 	color;
+	int 	invalid;
+	char 	*name;
+	char 	**form;
+	char 	*path;
 	struct tetriminos_t *next;
 } 	tetriminos_t;
 

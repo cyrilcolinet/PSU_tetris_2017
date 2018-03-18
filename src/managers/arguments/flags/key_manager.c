@@ -7,6 +7,19 @@
 
 # include "tetris.h"
 
+char check_multitouch()
+{
+	if (my_strequ(optarg, "rightk"))
+		return (67);
+	if (my_strequ(optarg, "leftk"))
+		return (68);
+	if (my_strequ(optarg, "topk"))
+		return (65);
+	if (my_strequ(optarg, "downk"))
+		return (66);
+	return (0);
+}
+
 char *configure_key_display(char c)
 {
 	char *str = NULL;

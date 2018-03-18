@@ -67,29 +67,34 @@ void change_map_size(main_t *param)
 	my_freetab(arr);
 }
 
-// TODO: rigth, left, down, up
-void change_key(int res, main_t *param)
+void key_error(char multi, main_t *param)
 {
-	if (my_strlen(optarg) != 1) {
-		write(2, optarg, my_strlen(optarg));
+	if (multi == 0 && my_strlen(optarg) != 1) {
 		write(2, "Invalid key character.\n", 23);
 		free_all(param);
 		exit(84);
-	} else {
-		switch (res) {
-			case 'l': param->config->k_left = config_key(*optarg);
-			break;
-			case 'r': param->config->k_right = config_key(*optarg);
-			break;
-			case 't': param->config->k_turn = config_key(*optarg);
-			break;
-			case 'd': param->config->k_drop = config_key(*optarg);
-			break;
-			case 'q': param->config->k_quit = config_key(*optarg);
-			break;
-			case 'p': param->config->k_pause = config_key(*optarg);
-			default:
-			break;
-		}
+	}
+}
+
+void change_key(int res, main_t *param)
+{
+	char multi = check_multitouch();
+
+	key_error(multi, param);
+	multi = ((multi == 0) ? *optarg : multi);
+	switch (res) {
+		case 'l': param->config->k_left = config_key(multi);
+		break;
+		case 'r': param->config->k_right = config_key(multi);
+		break;
+		case 't': param->config->k_turn = config_key(multi);
+		break;
+		case 'd': param->config->k_drop = config_key(multi);
+		break;
+		case 'q': param->config->k_quit = config_key(multi);
+		break;
+		case 'p': param->config->k_pause = config_key(multi);
+		default:
+		break;
 	}
 }
