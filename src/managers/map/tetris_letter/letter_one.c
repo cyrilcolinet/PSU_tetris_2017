@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-void letter_1(void)
+void letter_one(void)
 {
 	attron(COLOR_PAIR(1));
 	mvprintw(1, 1, "* * *");

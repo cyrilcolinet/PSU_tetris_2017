@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static int print_space(map_t *tmp, int i, int j, int nb)
+int print_space(map_t *tmp, int i, int j, int nb)
 {
 	if (tmp->form[i][j + 1] != '\0') {
 		mvprintw(tmp->pos_y + i,

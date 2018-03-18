@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static void ini_map(void)
+void ini_map(void)
 {
 	initscr();
 	noecho();
@@ -22,7 +22,7 @@ static void ini_map(void)
 	init_pair(6, COLOR_CYAN, -1);
 }
 
-static void display_all(main_t *param)
+void display_all(main_t *param)
 {
 	clear();
 	create_tetris_title();

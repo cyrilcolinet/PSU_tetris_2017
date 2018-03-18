@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-static char *my_realloc2(char *ptr, unsigned int size)
+char *my_realloc2(char *ptr, unsigned int size)
 {
 	char *new_ptr = my_strconfigure(size);
 	int ch = 0;
@@ -26,7 +26,7 @@ static char *my_realloc2(char *ptr, unsigned int size)
 	return (new_ptr);
 }
 
-static int get_character(int fdesc, char *str)
+int get_character(int fdesc, char *str)
 {
 	static int off = 0;
 	static char buff[READ_SIZE];
@@ -50,7 +50,7 @@ static int get_character(int fdesc, char *str)
 	return (reader);
 }
 
-static char *return_freed(char *ptr, char *ret)
+char *return_freed(char *ptr, char *ret)
 {
 	if (ptr != NULL)
 		free(ptr);

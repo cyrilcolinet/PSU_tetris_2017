@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static void display_next_tetri_size_1(int n, int b)
+void display_next_tetri_size_one(int n, int b)
 {
 	mvprintw(1 , n + 7, "\\");
 	mvprintw(1 + b + 1 , n + 7, "/");
@@ -51,7 +51,7 @@ void display_next_tetri(main_t *param, map_t *next)
 			mvprintw(1 + b + 1, n + i, "-");
 		}
 	} else
-		display_next_tetri_size_1(n, b);
+		display_next_tetri_size_one(n, b);
 	mvprintw(1, n + 2, "next");
 	next->pos_x = n + 2;
 	next->pos_y = 2;

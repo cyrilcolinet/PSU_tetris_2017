@@ -21,7 +21,6 @@ void new_fixed_tetrimino(main_t *param, int stop)
 	if (!tmp->next)
 		return;
 
-	tmp->next->id = id;
 	tmp->next = create_random_tetri(param);
 	tmp->next->stop = stop;
 	tmp->next->pos_x = 35;

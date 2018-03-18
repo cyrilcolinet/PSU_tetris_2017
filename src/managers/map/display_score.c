@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static int nb_length(int nb)
+int nb_length(int nb)
 {
 	int n = 0;
 
@@ -18,7 +18,7 @@ static int nb_length(int nb)
 	return (n);
 }
 
-static void display_value_score(main_t *param)
+void display_score_value(main_t *param)
 {
 	int nb = nb_length(param->stats->high_score);
 
@@ -57,5 +57,5 @@ void display_score(main_t *param)
 	mvprintw( 13, 3, "Lines");
 	mvprintw( 14, 3, "Level");
 	mvprintw( 16, 3, "Timer");
-	display_value_score(param);
+	display_score_value(param);
 }

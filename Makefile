@@ -29,12 +29,12 @@ SRC_FILES	= 	main.c		\
 			managers/map/display_next_tetri.c	\
 			managers/map/create_tetris_title.c	\
 			managers/map/create_random_tetri.c	\
-			managers/map/tetris_letter/letter_1.c	\
-			managers/map/tetris_letter/letter_2.c	\
-			managers/map/tetris_letter/letter_3.c	\
-			managers/map/tetris_letter/letter_4.c	\
-			managers/map/tetris_letter/letter_5.c	\
-			managers/map/tetris_letter/letter_6.c	\
+			managers/map/tetris_letter/letter_one.c	\
+			managers/map/tetris_letter/letter_two.c	\
+			managers/map/tetris_letter/letter_three.c	\
+			managers/map/tetris_letter/letter_four.c	\
+			managers/map/tetris_letter/letter_five.c	\
+			managers/map/tetris_letter/letter_six.c	\
 			managers/tetriminos/load_tetriminos.c 	\
 			managers/tetriminos/parse_file.c 	\
 			managers/tetriminos/error/error_size_color.c	\

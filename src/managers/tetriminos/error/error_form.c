@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static void check_character(tetriminos_t *tmp, main_t *param)
+void check_character(tetriminos_t *tmp, main_t *param)
 {
 	int len = 0;
 	int width = 0;

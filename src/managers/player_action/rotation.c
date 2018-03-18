@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static char **copie_and_rotate(char **new, char **form, int i, int j)
+char **copie_and_rotate(char **new, char **form, int i, int j)
 {
 	int a = i;
 	int b = j - 1;
@@ -26,7 +26,7 @@ static char **copie_and_rotate(char **new, char **form, int i, int j)
 	return (new);
 }
 
-static int get_len(char **form)
+int get_len_form(char **form)
 {
 	int len = 0;
 	int nb = 0;
@@ -41,7 +41,7 @@ static int get_len(char **form)
 	return (nb);
 }
 
-static char **malloc_new(char **new, char **form, int len, int nb)
+char **malloc_new(char **new, char **form, int len, int nb)
 {
 	for (int i = 0; i < len; i++) {
 		new[i] = malloc(sizeof(char) * (nb + 1));
@@ -58,7 +58,7 @@ void rotation(main_t *param, int n, map_t *tmp)
 	char **new;
 
 	if (n == param->config->k_turn.c) {
-		len = get_len(tmp->form);
+		len = get_len_form(tmp->form);
 		new = malloc(sizeof(char *) * (len + 1));
 		new[len] = NULL;
 		for (int i = 0; tmp->form[i] != NULL; i++)

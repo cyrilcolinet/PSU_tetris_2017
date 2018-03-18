@@ -5,7 +5,7 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 void display_map(main_t *param)
 {

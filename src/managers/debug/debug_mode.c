@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static void affichage_key(main_t *param)
+void key_display(main_t *param)
 {
 	my_putstr("Key Left : ");
 	my_putstr(param->config->k_left.display);
@@ -28,7 +28,7 @@ static void affichage_key(main_t *param)
 		my_putstr("No");
 }
 
-static void affichage_info_valid(tetriminos_t *tmp)
+void valid_info_display(tetriminos_t *tmp)
 {
 	my_putstr("Size ");
 	my_put_nbr(tmp->width);
@@ -43,7 +43,7 @@ static void affichage_info_valid(tetriminos_t *tmp)
 	}
 }
 
-static void affichage_tetrimino(main_t *param)
+void tetriminos_display(main_t *param)
 {
 	tetriminos_t *tmp = param->tetri;
 
@@ -53,7 +53,7 @@ static void affichage_tetrimino(main_t *param)
 			my_putstr(tmp->next->name);
 			my_putstr(" : ");
 			if (tmp->next->invalid == 0)
-				affichage_info_valid(tmp->next);
+				valid_info_display(tmp->next);
 			else
 				my_putstr("Error\n");
 		}
@@ -67,7 +67,7 @@ void debug_mode(main_t *param)
 
 	if (param->config->debug) {
 		my_putstr("*** DEBUG MODE ***\n");
-		affichage_key(param);
+		key_display(param);
 		my_putstr("\nLevel : ");
 		my_put_nbr(param->config->level);
 		my_putstr("\nSize : ");
@@ -77,7 +77,7 @@ void debug_mode(main_t *param)
 		my_putstr("\nTetriminos : ");
 		my_put_nbr(param->config->nb_tetri);
 		my_putchar('\n');
-		affichage_tetrimino(param);
+		tetriminos_display(param);
 		my_putstr("Press any key to start Tetris\n");
 		line = get_next_line(0);
 		free(line);

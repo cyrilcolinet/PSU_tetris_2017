@@ -68,7 +68,7 @@ char *parse_filename(char *file)
 	return (ret);
 }
 
-static char *clear_str(char *str)
+char *clear_str(char *str)
 {
 	int nb = 0;
 	int len = 0;

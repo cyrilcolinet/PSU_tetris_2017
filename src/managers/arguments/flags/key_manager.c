@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-char check_multitouch()
+char check_multitouch(void)
 {
 	if (my_strequ(optarg, "rightk"))
 		return (67);

@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-static char **copie_form(char **str, char **tmp)
+char **copy_form(char **str, char **tmp)
 {
 	int len = 0;
 
@@ -61,6 +61,6 @@ map_t *create_random_tetri(main_t *param)
 	}
 
 	new->color = val->color;
-	new->form = copie_form(new->form, val->form);
+	new->form = copy_form(new->form, val->form);
 	return (new);
 }

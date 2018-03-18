@@ -5,14 +5,14 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 void create_tetris_title(void)
 {
-	letter_1();
-	letter_2();
-	letter_3();
-	letter_4();
-	letter_5();
-	letter_6();
+	letter_one();
+	letter_two();
+	letter_three();
+	letter_four();
+	letter_five();
+	letter_six();
 }

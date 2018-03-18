@@ -5,7 +5,7 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 map_t *add_new_form_map(map_t *tmp)
 {

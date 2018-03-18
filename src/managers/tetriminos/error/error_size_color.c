@@ -5,7 +5,7 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 int error_size_color(char *str)
 {

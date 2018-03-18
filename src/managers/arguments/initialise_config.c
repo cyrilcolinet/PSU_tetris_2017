@@ -5,7 +5,7 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
 void initialise_config(main_t *param)
 {

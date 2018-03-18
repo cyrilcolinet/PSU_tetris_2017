@@ -5,9 +5,9 @@
 ** tetris
 */
 
-#include "tetris.h"
+# include "tetris.h"
 
-static int get_len(map_t *tmp)
+int get_len(map_t *tmp)
 {
 	int len = 0;
 	int nb = 0;

@@ -7,7 +7,7 @@
 
 # include "tetris.h"
 
-static int check_nb_valid(main_t *param)
+int check_nb_valid(main_t *param)
 {
 	tetriminos_t *tmp = param->tetri;
 	int nb = 0;
